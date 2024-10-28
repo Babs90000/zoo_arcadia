@@ -1,5 +1,5 @@
 <?php
-                      define('ROOT_PATH', dirname(__FILE__) . '/');
+define('ROOT_PATH', '/');
 
 
 $sql = "SELECT type_jour, heure_ouverture, heure_fermeture FROM horaires_ouverture";
