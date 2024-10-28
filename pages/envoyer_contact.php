@@ -68,15 +68,15 @@ try {
   $mailertogo_domain = getenv("MAILERTOGO_DOMAIN", true);
 
   // Mail Headers
-  $phpmailer->setFrom("mailer@{$mailertogo_domain}", "Mailer");
-  // Change to recipient email. Make sure to use a real email address in your tests to avoid hard bounces and protect your reputation as a sender.
-  $phpmailer->addAddress("noreply@{$mailertogo_domain}", "Recipient");
+  $phpmailer->setFrom($email, $name);
+  $phpmailer->addAddress("employearcdia@gmail.com", "Recipient");
+  $phpmailer->addReplyTo($email, $name);
 
   // Message
   $phpmailer->isHTML(true);
-  $phpmailer->Subject = "Mailer To Go Test";
-  $phpmailer->Body    = "<b>Hi</b>\nTest from Mailer To Go 😊\n";
-  $phpmailer->AltBody = "Hi!\nTest from Mailer To Go 😊\n";
+  $phpmailer->Subject = "Nouveau message de contact de ' . $name";
+  $phpmailer->Body    = "Nom: " . $name . "\nEmail: " . $email . "\nMessage: \n" . $message;
+  $phpmailer->AltBody = "Nom: " . $name . "\nEmail: " . $email . "\nMessage: \n" . $message;
 
   // Send the Email
   $phpmailer->send();
