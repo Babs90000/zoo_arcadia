@@ -5,6 +5,11 @@
         "mongodb/mongodb": "^1.20",
         "phpmailer/phpmailer": "^6.9"
     },
+    "scripts": {
+        "post-install-cmd": [
+            "echo 'memory_limit = 256M' > /app/.heroku/php/etc/php/conf.d/memory-limit.ini"
+        ]
+    },
     "authors": [
         {
             "name": "Babou CAMARA-DIABY"
