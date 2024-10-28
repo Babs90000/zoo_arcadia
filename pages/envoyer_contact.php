@@ -2,43 +2,30 @@
 
 require '../vendor/autoload.php';
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
+use Mailgun\Mailgun;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  $name = htmlspecialchars($_POST['name']);
-  $email = htmlspecialchars($_POST['email']);
-  $message = htmlspecialchars($_POST['message']);
+    $name = htmlspecialchars($_POST['name']);
+    $email = htmlspecialchars($_POST['email']);
+    $message = htmlspecialchars($_POST['message']);
 
-  // Initialiser PHPMailer
-  $phpmailer = new PHPMailer(true);
+    // Initialiser Mailgun
+    $apiKey = getenv('MAILGUN_API_KEY');
+    $domain = getenv('MAILGUN_DOMAIN');
+    $mgClient = Mailgun::create($apiKey);
 
-  try {
-    // Configurer SMTP
-    $phpmailer->isSMTP();
-    $phpmailer->SMTPAuth = true;
-    $phpmailer->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+    try {
+        // Envoyer l'email
+        $mgClient->messages()->send($domain, [
+            'from'    => 'noreply@votredomaine.com',
+            'to'      => 'camara.enc@gmail.com', // Adresse email de destination
+            'subject' => "Nouveau message de contact de " . $name,
+            'text'    => "Nom: " . $name . "\nEmail: " . $email . "\nMessage: \n" . $message,
+            'html'    => "Nom: " . $name . "<br>Email: " . $email . "<br>Message: <br>" . nl2br($message)
+        ]);
 
-    // Crédentials ENV
-    $phpmailer->Host = getenv("MAILERTOGO_SMTP_HOST", true);
-    $phpmailer->Port = intval(getenv("MAILERTOGO_SMTP_PORT", true));
-    $phpmailer->Username = getenv("MAILERTOGO_SMTP_USER", true);
-    $phpmailer->Password = getenv("MAILERTOGO_SMTP_PASSWORD", true);
-
-    // En-têtes de mail
-    $phpmailer->setFrom("noreply@votredomaine.com", "Mailer");
-    $phpmailer->addAddress("camara.enc@gmail.com", "Recipient"); // Adresse email de destination
-
-    // Message
-    $phpmailer->isHTML(true);
-    $phpmailer->Subject = "Nouveau message de contact de " . $name;
-    $phpmailer->Body    = "Nom: " . $name . "<br>Email: " . $email . "<br>Message: <br>" . nl2br($message);
-    $phpmailer->AltBody = "Nom: " . $name . "\nEmail: " . $email . "\nMessage: \n" . $message;
-
-    // Envoyer l'email
-    $phpmailer->send();
-    echo "Votre message a bien été envoyé.";
-  } catch (Exception $e) {
-    echo "Votre message n'a pas été envoyé: {$phpmailer->ErrorInfo}";
-  }
+        echo "Votre message a bien été envoyé.";
+    } catch (Exception $e) {
+        echo "Votre message n'a pas été envoyé: {$e->getMessage()}";
+    }
 }
