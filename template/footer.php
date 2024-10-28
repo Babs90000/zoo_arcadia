@@ -1,7 +1,4 @@
 <?php
-echo $_SERVER['DOCUMENT_ROOT'];
-define('ROOT_PATH', $_SERVER['DOCUMENT_ROOT'] . '/');
-
 
 $sql = "SELECT type_jour, heure_ouverture, heure_fermeture FROM horaires_ouverture";
 $statement = $bdd->prepare($sql);
@@ -35,7 +32,7 @@ foreach ($horaires as $horaire) {
       </p>
     </a>
     <p><strong>Contact</strong><br>
-      <a href="<? echo ROOT_PATH; ?>../pages/formulaire_contact.php"><i class="bi bi-envelope-at-fill"></i> Formulaire de contact</a><br>
+      <a href="./pages/formulaire_contact.php"><i class="bi bi-envelope-at-fill"></i> Formulaire de contact</a><br>
       <a href="tel:+33145074569"><i class="bi bi-telephone-fill"></i> +33145074569</a>
     </p>
   </div>
