@@ -135,7 +135,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </a>
             <?php endif; ?>
       </nav>
-    </header>
+    </header> 
 
 <body>
     <style>
