@@ -69,7 +69,7 @@ foreach ($horaires as $horaire) {
           class="logo_arcadia"
         />
         <ul>
-          <li><a href="../public/index.php">Accueil</a></li>
+          <li><a href="../index.php">Accueil</a></li>
           <li><a href="../pages/page_services.php">Services</a></li>
           <li><a href="../pages/page_habitat.php">Habitats</a></li>
           <li><a href="../pages/animaux.php">Animaux</a></li>
