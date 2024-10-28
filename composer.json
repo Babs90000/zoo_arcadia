@@ -1,14 +1,26 @@
 {
     "name": "arcadia/babou_camara_diaby",
-    "description": "site concernant un zoo qui s'appelle Arcadia",
+    "description": "Site concernant un zoo qui s'appelle Arcadia",
     "require": {
-        "mongodb/mongodb": "^1.20",
-        "phpmailer/phpmailer": "^6.9"
+        "php": "^7.4 || ^8.0",
+        "mongodb/mongodb": "^1.9",
+        "phpmailer/phpmailer": "^6.5"
+    },
+    "config": {
+        "process-timeout": 0,
+        "platform": {
+            "php": "7.4.3"
+        }
     },
     "scripts": {
         "post-install-cmd": [
-            "echo 'memory_limit = 256M' > /app/.heroku/php/etc/php/conf.d/memory-limit.ini"
+            "echo 'memory_limit = 512M' > /app/.heroku/php/etc/php/conf.d/memory-limit.ini"
         ]
+    },
+    "autoload": {
+        "psr-4": {
+            "ZooArcadia\\": "src/"
+        }
     },
     "authors": [
         {
