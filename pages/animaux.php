@@ -1,5 +1,4 @@
-
-<?php require_once '../template/header.php'; ?>
+<?php require_once __DIR__ . '../template/header.php'; ?>
 
 <script src="../js/script.js" defer></script>
 
@@ -11,5 +10,5 @@
 
 <div class="resultatSearch" id="resultatSearch"></div>
 
-<?php require_once '../template/footer.php'; ?>
+<?php require_once __DIR__ . '../template/footer.php'; ?>
 
