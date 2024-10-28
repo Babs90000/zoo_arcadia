@@ -1,4 +1,4 @@
-<?php require_once '../template/header.php'; ?>
+<?php require_once './template/header.php'; ?>
 
 <!-- Début Carrousel -->
     <main>
@@ -107,4 +107,4 @@
     </main>
 
     
-   <?php require_once '../template/footer.php'; ?>
+   <?php require_once './template/footer.php'; ?>
