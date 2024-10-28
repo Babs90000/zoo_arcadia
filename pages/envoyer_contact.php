@@ -25,12 +25,12 @@ try {
   $phpmailer->Port = intval(getenv("MAILERTOGO_SMTP_PORT", true));
   $phpmailer->Username = getenv("MAILERTOGO_SMTP_USER", true);
   $phpmailer->Password = getenv("MAILERTOGO_SMTP_PASSWORD", true);
-  $mailertogo_domain = getenv("MAILERTOGO_URL", true);
+
 
   // Mail Headers
-  $phpmailer->setFrom("mailer@{$mailertogo_domain}", "Mailer");
+  $phpmailer->setFrom("nopely@votredomaine.com", "Mailer");
   // Change to recipient email. Make sure to use a real email address in your tests to avoid hard bounces and protect your reputation as a sender.
-  $phpmailer->addAddress("noreply@{$mailertogo_domain}", "Recipient");
+  $phpmailer->addAddress("camara.enc@gmail.com", "Recipient");
 
   // Message
   $phpmailer->isHTML(true);
