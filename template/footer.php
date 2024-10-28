@@ -35,7 +35,7 @@ foreach ($horaires as $horaire) {
       </p>
     </a>
     <p><strong>Contact</strong><br>
-      <a href="/pages/formulaire_contact.php"><i class="bi bi-envelope-at-fill"></i> Formulaire de contact</a><br>
+      <a href="../pages/formulaire_contact.php"><i class="bi bi-envelope-at-fill"></i> Formulaire de contact</a><br>
       <a href="tel:+33145074569"><i class="bi bi-telephone-fill"></i> +33145074569</a>
     </p>
   </div>
