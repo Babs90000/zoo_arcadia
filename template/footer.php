@@ -1,5 +1,6 @@
 <?php
-define('ROOT_PATH', '/');
+echo $_SERVER['DOCUMENT_ROOT'];
+define('ROOT_PATH', $_SERVER['DOCUMENT_ROOT'] . '/');
 
 
 $sql = "SELECT type_jour, heure_ouverture, heure_fermeture FROM horaires_ouverture";
@@ -64,3 +65,4 @@ foreach ($horaires as $horaire) {
 </body>
 
 </html>
+
