@@ -10,6 +10,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = htmlspecialchars($_POST['email']);
     $message = htmlspecialchars($_POST['message']);
 
+
+// Passing true enables exceptions.
 $phpmailer = new PHPMailer(true);
 
 try {
@@ -32,9 +34,9 @@ try {
 
   // Message
   $phpmailer->isHTML(true);
-  $phpmailer->Subject = "Mailer To Go Test";
-  $phpmailer->Body    = "<b>Hi</b>\nTest from Mailer To Go 😊\n";
-  $phpmailer->AltBody = "Hi!\nTest from Mailer To Go 😊\n";
+  $phpmailer->Subject = "Nouveau message de contact de"  . $name;
+  $phpmailer->Body    = "Nom: " . $name . "\nEmail: " . $email . "\nMessage: \n" . $message;
+  $phpmailer->AltBody = "Nom: " . $name . "\nEmail: " . $email . "\nMessage: \n" . $message;
 
   // Send the Email
   $phpmailer->send();
