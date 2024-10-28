@@ -1,0 +1,20 @@
+.block_connexion {
+    margin-top: 150px;
+    margin-left: 30%;
+    width: 40%;
+    height: 50%;
+    background-color: rgba(14, 24, 14, 0.774);
+    border-radius: 5px;
+    padding: 20px;
+    color: white;
+    font-family: sans-serif;
+}
+
+.btn_connexion {
+    opacity: 0;
+    pointer-events: none;
+}
+
+nav ul {
+    margin-left: -90px;
+}

@@ -1,0 +1,13 @@
+{
+    "name": "arcadia/babou_camara_diaby",
+    "description": "site concernant un zoo qui s'appelle Arcadia",
+    "require": {
+        "mongodb/mongodb": "^1.20",
+        "phpmailer/phpmailer": "^6.9"
+    },
+    "authors": [
+        {
+            "name": "Babou CAMARA-DIABY"
+        }
+    ]
+}

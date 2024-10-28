@@ -1,0 +1,35 @@
+.block_formulaire {
+    margin: 180px 50px 50px 50px;
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: #f2f2f2;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 40px;
+}
+
+.bouton_retour {
+    background-color: #4CAF50; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 0px auto 10px  auto;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: background-color 0.3s ease;
+    align-content: center;
+}
+
+.bouton_retour:hover {
+    background-color: #45a049; 
+}

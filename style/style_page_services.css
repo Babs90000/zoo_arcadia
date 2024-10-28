@@ -1,0 +1,18 @@
+.titre {
+    text-decoration: underline;
+    text-underline-offset: 15px;
+    margin-top: 150px;
+    text-align: center;
+}
+
+.block_services {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.block_services > * {
+    margin-top: 150px; /* Ajustez la valeur selon vos besoins */
+}
+

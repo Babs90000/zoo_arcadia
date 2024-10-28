@@ -1,0 +1,43 @@
+.container {
+    margin: 100px auto;
+    text-align: center;
+}
+
+.avis {
+
+
+    margin: 20px auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 600px;
+    border: 1px solid #ddd;
+    border-radius: 20px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #9cb60867;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.avis:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.avis p {
+    margin: 10px 0;
+    text-align: center;
+}
+
+.avis strong {
+    color: #333;
+    font-size: 20px;
+}
+
+.titre_page {
+    margin-top:200px;
+    text-align: center;
+}
+
+.avis_item p {
+    margin: 10px 0;
+}

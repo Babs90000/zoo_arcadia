@@ -1,0 +1,16 @@
+.block_habitat {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+}
+
+.element_habitat {
+    box-sizing: border-box;
+    width: 25%;
+    margin: 20px;
+    padding: 20px;
+    border: 2px solid rgb(7, 122, 46);
+    border-radius: 10px;
+    text-align: center;
+}
