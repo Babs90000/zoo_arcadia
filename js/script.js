@@ -4,9 +4,9 @@ async function animalSearch() {
 	let url;
 
 	if (requete.length === 0) {
-		url = "recherche_animal.php";
+		url = "../pages/recherche_animal.php";
 	} else {
-		url = `recherche_animal.php?q=${encodeURIComponent(requete)}`;
+		url = `../pages/recherche_animal.php?q=${encodeURIComponent(requete)}`;
 	}
 
 
