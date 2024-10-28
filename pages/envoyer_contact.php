@@ -25,7 +25,7 @@ try {
   $phpmailer->Port = intval(getenv("MAILERTOGO_SMTP_PORT", true));
   $phpmailer->Username = getenv("MAILERTOGO_SMTP_USER", true);
   $phpmailer->Password = getenv("MAILERTOGO_SMTP_PASSWORD", true);
-  $mailertogo_domain = getenv("MAILERTOGO_DOMAIN", true);
+  $mailertogo_domain = getenv("MAILERTOGO_URL", true);
 
   // Mail Headers
   $phpmailer->setFrom("mailer@{$mailertogo_domain}", "Mailer");
