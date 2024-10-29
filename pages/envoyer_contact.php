@@ -8,16 +8,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $email = htmlspecialchars($_POST['email']);
   $message = htmlspecialchars($_POST['message']);
 
-  // Initialiser Mailgun
+
   $apiKey = getenv('MAILGUN_API_KEY');
   $domain = getenv('MAILGUN_DOMAIN');
   $mgClient = Mailgun::create($apiKey);
-
+  
   try {
-    // Envoyer l'email
+ 
     $mgClient->messages()->send($domain, [
-      'from'    => 'noreply@votredomaine.com',
-      'to'      => 'camara.enc@gmail.com', // Adresse email de destination
+      'from'    => $email,
+      'to'      => 'employearcadia@gmail.com', 
       'subject' => "Nouveau message de contact de " . $name,
       'text'    => "Nom: " . $name . "\nEmail: " . $email . "\nMessage: \n" . $message,
       'html'    => "Nom: " . $name . "<br>Email: " . $email . "<br>Message: <br>" . nl2br($message)
