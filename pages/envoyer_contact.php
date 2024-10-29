@@ -22,8 +22,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       'text'    => "Nom: " . $name . "\nEmail: " . $email . "\nMessage: \n" . $message,
       'html'    => "Nom: " . $name . "<br>Email: " . $email . "<br>Message: <br>" . nl2br($message)
     ]);
-    echo "Votre message a bien été envoyé.";
+    echo "Votre message a bien été envoyé.</br>";
   } catch (Exception $e) {
-    echo "Votre message n'a pas été envoyé: {$e->getMessage()}";
+    echo "Votre message n'a pas été envoyé: {$e->getMessage()}</br>";
   }
+
+  echo "Tu seras redirigé à la page précédente dans 5 secondes...";
+  header("refresh:5;url=" . $_SERVER['HTTP_REFERER']);
+  exit();
 }
