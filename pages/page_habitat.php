@@ -1,7 +1,7 @@
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="../style/style_page_habitat.css">
-<?php include_once '../template/header.php'; ?>
-<div class="containerHabitats" style="height: 600px;">
+<?php require_once '../template/header.php'; ?>
+<link rel="stylesheet" href="../style/style_page_habitats.css" />
+<div class="containerHabitats">
         <h2 class="text-success text-center mb-4">Nos Habitats</h2>
         <div class="row">
             <?php
@@ -12,7 +12,7 @@
 
             if (count($habitats) > 0) {
                 foreach ($habitats as $habitat) {
-                    echo "<div class='col-md-6 col-lg-4 mb-4'>";
+                    echo "<div class='col-md-6 col-lg-4 mb-4 container_habitat'>";
                     echo "<div class='card h-100'>";
                     if ($habitat['image_data']) {
                         echo '<img src="data:image/jpeg;base64,' . base64_encode($habitat['image_data']) . '" alt="Image de l\'habitat" class="card-img-top">';
@@ -31,4 +31,5 @@
             ?>
         </div>
     </div>
+
 <?php require_once '../template/footer.php'; ?>

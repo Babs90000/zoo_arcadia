@@ -56,7 +56,7 @@ $query = 'SELECT animal_id, prenom FROM animaux';
 $animaux = $bdd->query($query)->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
-<link rel="stylesheet" href="style_formulaire_nourriture.css" />
+<link rel="stylesheet" href="../style/style_formulaire_nourriture.css" />
 
 
     <main>
@@ -86,7 +86,7 @@ $animaux = $bdd->query($query)->fetchAll(PDO::FETCH_ASSOC);
                 <label for="username">Nom d'utilisateur :</label>
                 <input type="text" name="username" id="username" placeholder="Nom d'utilisateur" required><br><br>
                 <button type="submit">Ajouter</button>
-            </form>
+            </form> 
             <br>
             <button onclick="history.back()" class=bouton_retour>Retour en arrière </button>
         </div>

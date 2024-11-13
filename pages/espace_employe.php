@@ -27,7 +27,7 @@ switch ($role_utilisateur) {
 }
 ?>
 
-<link rel=stylesheet href="style_espace_utilisateur.css">
+<link rel=stylesheet href="../style/style_espace_utilisateur.css">
 <main>
     <div class="container">
         <h1>Bienvenue dans l'espace employé </h1>

@@ -69,6 +69,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 $query = 'SELECT * FROM services';
 $services = $bdd->query($query)->fetchAll(PDO::FETCH_ASSOC);
+$isAdmin = $_SESSION['role'] == 1;
+
 ?>
 
 <!DOCTYPE html>
@@ -102,7 +104,7 @@ $services = $bdd->query($query)->fetchAll(PDO::FETCH_ASSOC);
     ></script>
 
 
-    <script defer href="script.js"></script>
+    <script defer href="../js/script.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -151,7 +153,7 @@ $services = $bdd->query($query)->fetchAll(PDO::FETCH_ASSOC);
                 <?php unset($_SESSION['message']); ?>
             </div>
         <?php endif; ?>
-
+        <?php if ($isAdmin) { ?>
         <h3 class="choix_gestion_service">Créer un nouveau service</h3>
         <form method="POST">
             <input type="hidden" name="action" value="creer">
@@ -165,7 +167,7 @@ $services = $bdd->query($query)->fetchAll(PDO::FETCH_ASSOC);
             </div>
             <button type="submit" class="btn btn-success">Créer</button>
         </form>
-
+        <?php }; ?>
         <hr>
 
         <h3 class="choix_gestion_service">Liste des services</h3><br>
@@ -192,7 +194,8 @@ $services = $bdd->query($query)->fetchAll(PDO::FETCH_ASSOC);
                     <form method="POST" class="mt-2">
                         <input type="hidden" name="action" value="supprimer">
                         <input type="hidden" name="service_id" value="<?php echo $service['service_id']; ?>">
-                        <button type="submit" class="btn btn-danger">Supprimer</button><br><br>
+                      <?php  if ($isAdmin) { ?>
+                        <button type="submit" class="btn btn-danger">Supprimer</button><?php } ?> <br><br>
                     </form>
                 </div>
             <?php endforeach; ?>

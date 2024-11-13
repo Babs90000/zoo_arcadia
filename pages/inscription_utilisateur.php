@@ -1,8 +1,8 @@
 <?php
 
 require_once '../classes/admin.php';
-require_once '.../classes/employe.php';
-require_once './classes/veterinaire.php';
+require_once '../classes/employe.php';
+require_once '../classes/veterinaire.php';
 require_once '../template/header.php';
 
 if (!isset($_SESSION['role']) || $_SESSION['role'] != 1) {
@@ -65,7 +65,7 @@ if (isset($_POST['Creer'])) {
     function goBack() {
         window.history.back();
     }
-</script>mv
+</script>
 
 </body>
 </html>

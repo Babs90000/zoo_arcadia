@@ -3,7 +3,7 @@
 <div class="containerDetailHabitat ">
         <h2 class="text-success text-center mb-4">Détail de l'Habitat</h2>
         <div class="card mb-4 text-center">
-            <div class="card-body">
+            <div class="card-body text-center">
                 <?php
             
 
@@ -34,7 +34,7 @@
 
                         if (count($animaux) > 0) {
                             echo "<h3>Animaux dans cet habitat :</h3>";
-                            echo "<ul class='list-groupAnimaux d-flex justify-content-center'>";
+                            echo "<ul class='list-groupAnimaux '>";
                             foreach ($animaux as $animal) {
                                 echo "<li class='list-group-item'><a href='detail_animal.php?animal_id=" . $animal['animal_id'] . "'>" . $animal['prenom'] . " - " . $animal['label'] . "</a></li>";
                             }
