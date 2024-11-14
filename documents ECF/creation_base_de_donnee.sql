@@ -118,4 +118,10 @@ INSERT INTO horaires_ouverture (type_jour, heure_ouverture, heure_fermeture) VAL
 
 ALTER TABLE images MODIFY COLUMN image_data LONGBLOB;
 
- 
+
+/* FIN D'INSERTION DES DONNEES  */
+
+
+ALTER TABLE images MODIFY COLUMN image_data LONGBLOB;
+
+/* FIN D'INSERTION DES DONNEES  */
