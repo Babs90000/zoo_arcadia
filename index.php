@@ -7,7 +7,7 @@
   exit();
 } */
 
-require_once '../template/header.php';  ?>
+require_once './template/header.php';  ?>
 
 <!-- Début Carrousel -->
 <main>
@@ -20,21 +20,21 @@ require_once '../template/header.php';  ?>
       </div>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="../assets/image slider/savane.jpg" class="<!-- d-block w-100 --> image_savane" alt="photo de la savane">
+          <img src="./assets/image slider/savane.jpg" class="<!-- d-block w-100 --> image_savane" alt="photo de la savane">
           <div class="carousel-caption d-none d-md-block">
             <h5>Des Habitats plus vrai que nature</h5>
             <p>Découvrez un monde où la nature règne en maître, et où chaque habitat est une fenêtre sur la vie sauvage</p>
           </div>
         </div>
         <div class="carousel-item">
-          <img src="../assets/image slider/panneaux solaires.jpg" class="<!-- d-block w-100 --> image_panneaux-solaires" alt="panneaux solaires">
+          <img src="./assets/image slider/panneaux solaires.jpg" class="<!-- d-block w-100 --> image_panneaux-solaires" alt="panneaux solaires">
           <div class="carousel-caption d-none d-md-block">
             <h5>Une Indépendance energique</h5>
             <p>Notre zoo fonctionne exclusivement à l’énergie renouvelable, garantissant un impact minimal sur l’environnement.</p>
           </div>
         </div>
         <div class="carousel-item">
-          <img src="../assets/image slider/orang_outan_chez_veterinaire-9.webp" class="<!-- d-block w-100 --> image_chimpanze" alt="chimpanze qui se fait soigner">
+          <img src="./assets/image slider/orang_outan_chez_veterinaire-9.webp" class="<!-- d-block w-100 --> image_chimpanze" alt="chimpanze qui se fait soigner">
           <div class="carousel-caption d-none d-md-block">
             <h5>Santé des animaux</h5>
             <p>Nos vétérinaires qui effectuent des contrôles minutieux des animaux chaque jour pour garantir leur bien-être..</p>
@@ -116,4 +116,4 @@ require_once '../template/header.php';  ?>
 </main>
 
 
-<?php require_once '../template/footer.php'; ?>
+<?php require_once './template/footer.php'; ?>
