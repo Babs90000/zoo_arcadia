@@ -41,14 +41,14 @@ foreach ($horaires as $horaire) {
       <img src="../assets/Logo/logo arcadia sans fond.png" alt="Logo du zoo Arcadia" class="logo_arcadia" />
       <i class="bi bi-list" id="button_menu_mobile"></i>
       <ul class="navbar_desktop">
-        <li><a href="../public/index.php">Accueil</a></li>
+        <li><a href="./public/index.php">Accueil</a></li>
         <li><a href="../pages/page_services.php">Services</a></li>
         <li><a href="../pages/page_habitat.php">Habitats</a></li>
         <li><a href="../pages/animaux.php">Animaux</a></li>
         <li><a href="../pages/avis.php">Vos avis</a></li>
       </ul>
       <ul class="navbar_mobile" id="navbar_mobile">
-        <li><a href="../public/index.php">Accueil</a></li>
+        <li><a href="./public/index.php">Accueil</a></li>
         <li><a href="../pages/page_services.php">Services</a></li>
         <li><a href="../pages/page_habitat.php">Habitats</a></li>
         <li><a href="../pages/animaux.php">Animaux</a></li>
