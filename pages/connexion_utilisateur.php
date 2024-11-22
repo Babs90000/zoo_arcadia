@@ -42,6 +42,7 @@ require_once '../template/header.php';
 
 ?>
 
+<link rel="stylesheet" href="../style/style_page_connexion.css">
 <div class="block_connexion">
     <h2>Connexion</h2>
     <form action="" method="post">
