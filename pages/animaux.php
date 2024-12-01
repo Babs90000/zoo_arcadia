@@ -1,5 +1,5 @@
 <?php require_once '../template/header.php';
-ini_set('memory_limit', '256M');
+ini_set('memory_limit', '1G');
  ?>
 
 <div class="searchContainer">
