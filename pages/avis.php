@@ -13,8 +13,8 @@ $avis = $bdd->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     <?php if (count($avis) > 0): ?>
         <?php foreach ($avis as $un_avis): ?>
             <div class= "avis">
-                <p><strong><i class="bi bi-person-hearts"></i>  <?php echo $un_avis['pseudo']; ?></strong></p>
-                <p><?php echo $un_avis['commentaire']; ?></p>
+                <p><strong><i class="bi bi-person-hearts"></i>  <?php echo htmlspecialchars($un_avis['pseudo']); ?></strong></p>
+                <p><?php echo htmlspecialchars($un_avis['commentaire']); ?></p>
             
             </div>
             
@@ -27,8 +27,8 @@ $avis = $bdd->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     <div class="container mt-5">
         <h2 class="text-success text-center mb-4">Laissez votre avis</h2>
         <?php  if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['laisser_avis'])) {
-    $pseudo = $_POST['pseudo'];
-    $commentaire = $_POST['commentaire'];
+    $pseudo = htmlspecialchars($_POST['pseudo']);
+    $commentaire = htmlespcialchar($_POST['commentaire']);
 
     if (!empty($pseudo) && !empty($commentaire)) {
         $sql = "INSERT INTO avis (pseudo, commentaire, isVisible) VALUES (:pseudo, :commentaire, FALSE)";

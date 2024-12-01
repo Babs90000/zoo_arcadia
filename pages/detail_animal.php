@@ -1,6 +1,5 @@
 
 <?php
-require_once '../configuration/env.php';
 require_once 'incrementation_compteur_visite.php';
 require_once '../template/header.php';
 ?>
@@ -23,10 +22,11 @@ require_once '../template/header.php';
                     $animal = $statement->fetch(PDO::FETCH_ASSOC);
 
                     if ($animal) {
-                        echo "<h3 class='text-success'>" . $animal['prenom'] . "</h3>";
-                        echo "<p><strong>Race:</strong> " . $animal['race_label'] . "</p>";
-                        echo "<p><strong>Âge:</strong> " . $animal['age'] . " ans</p>";
-                        echo "<p><strong>Description:</strong> " . $animal['description'] . "</p>";
+                        echo "<h3 class='text-success'>" . htmlspecialchars($animal['prenom']) . "</h3>";
+                        echo "<p><strong>Race:</strong> " . htmlspecialchars($animal['race_label']) . "</p>";
+                        echo "<p><strong>Âge:</strong> " . htmlspecialchars($animal['age']) . " ans</p>";
+                        echo "<p><strong>Description:</strong> " . htmlspecialchars($animal['description']) . "</p>";
+
 
                         $sql = "SELECT image_data FROM images WHERE animal_id = :animal_id";
                         $statement = $bdd->prepare($sql);
@@ -39,7 +39,8 @@ require_once '../template/header.php';
                             foreach ($images as $image) {
                                 if (!empty($image['image_data'])) {
                                     echo '<div class="detailAnimal col-md-4 mb-3" >';
-                                    echo '<img src="data:image/jpeg;base64,' . base64_encode($image['image_data']) . '" alt="Photo de l\'animal" class="img-fluid" style="max-width: 600px;">';
+                                    echo '<img src="data:image/jpeg;base64,' . base64_encode($image['image_data']) 
+                                    . '" alt="Photo de l\'animal" class="img-fluid" style="max-width: 600px;">';
                                     echo '</div>';
                                 }
                             }
@@ -56,23 +57,23 @@ require_once '../template/header.php';
                         if ($rapports) {
                             echo "<h3 class='text-success'>Rapports Vétérinaires</h3>";
                             foreach ($rapports as $rapport) {
-                                echo "<p><strong>État de l'animal:</strong> " . $rapport['etat_animal'] . "</p>";
-                                echo "<p><strong>Nourriture proposée:</strong> " . $rapport['nourriture_proposee'] . "</p>";
-                                echo "<p><strong>Grammage de la nourriture:</strong> " . $rapport['grammage_nourriture'] . "</p>";
-                                echo "<p><strong>Date de passage:</strong> " . $rapport['date_passage'] . "</p>";
+                                echo "<p><strong>État de l'animal:</strong> " . htmlspecialchars($rapport['etat_animal']) . "</p>";
+                                echo "<p><strong>Nourriture proposée:</strong> " . htmlspecialchars($rapport['nourriture_proposee']) . "</p>";
+                                echo "<p><strong>Grammage de la nourriture:</strong> " . htmlspecialchars($rapport['grammage_nourriture']) . "</p>";
+                                echo "<p><strong>Date de passage:</strong> " . htmlspecialchars($rapport['date_passage']) . "</p>";
                                 if (!empty($rapport['detail_etat_animal'])) {
-                                    echo "<p><strong>Détail de l'état de l'animal:</strong> " . $rapport['detail_etat_animal'] . "</p>";
+                                    echo "<p><strong>Détail de l'état de l'animal:</strong> " . htmlspecialchars($rapport['detail_etat_animal']) . "</p>";
                                 }
                                 echo "<hr>";
                             }
                         } else {
-                            echo "<p>Aucun rapport vétérinaire trouvé pour cet animal.</p>";
+                            echo "<p>" . htmlspecialchars("Aucun rapport vétérinaire trouvé pour cet animal.") . "</p>";
                         }
                     } else {
-                        echo "<p>Animal non trouvé.</p>";
+                        echo "<p>" . htmlspecialchars("Animal non trouvé.") . "</p>";
                     }
                 } else {
-                    echo "<p>ID de l'animal manquant.</p>";
+                    echo "<p>" . htmlspecialchars("ID de l'animal manquant.") . "</p>";
                 }
 
                 $animal_id = $_GET['animal_id'];

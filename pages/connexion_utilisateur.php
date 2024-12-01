@@ -1,6 +1,5 @@
 <?php
-session_start();
-
+require_once '../template/header.php';
 require_once '../configuration/env.php';
 
 if (isset($_POST['Se_connecter'])) {
@@ -21,7 +20,7 @@ if (isset($_POST['Se_connecter'])) {
             $_SESSION['prenom'] = $user['prenom'];
             $_SESSION['nom'] = $user['nom'];
             $_SESSION['role'] = $user['role_id'];
-            $_SESSION['message_connexion'] = 'Bonjour '. $user['prenom'].' '. $user['nom'].' Vous êtes connecté ! ';
+            $_SESSION['message_connexion'] = 'Bonjour ' . htmlspecialchars($user['prenom']) . ' ' . htmlspecialchars($user['nom']) . ' Vous êtes connecté ! ';
            
             if ($_SESSION['role'] == 1) {
                 header('Location: espace_admin.php');
@@ -31,18 +30,15 @@ if (isset($_POST['Se_connecter'])) {
             }
             
         } else {
-            echo 'Identifiants incorrects';
+            echo '<script>alert("Identifiants incorrects");</script>';
         }
     } else {
-        echo 'Veuillez compléter tous les champs';
+        echo htmlspecialchars('Veuillez compléter tous les champs');
     }
 }
 
-require_once '../template/header.php';
-
 ?>
-
-<link rel="stylesheet" href="../style/style_page_connexion.css">
+<link rel="stylesheet" href="../style/style_page_connexion.css" />
 <div class="block_connexion">
     <h2>Connexion</h2>
     <form action="" method="post">
