@@ -1,19 +1,19 @@
 <?php return array(
     'root' => array(
-        'name' => 'arcadia/babou_camara_diaby',
-        'pretty_version' => 'dev-main',
-        'version' => 'dev-main',
-        'reference' => '2de21ef46d12b3d68ac6cdccfb0741139afdd9c6',
+        'name' => 'admin/zoo_arcadia',
+        'pretty_version' => '1.0.0+no-version-set',
+        'version' => '1.0.0.0',
+        'reference' => null,
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'dev' => true,
     ),
     'versions' => array(
-        'arcadia/babou_camara_diaby' => array(
-            'pretty_version' => 'dev-main',
-            'version' => 'dev-main',
-            'reference' => '2de21ef46d12b3d68ac6cdccfb0741139afdd9c6',
+        'admin/zoo_arcadia' => array(
+            'pretty_version' => '1.0.0+no-version-set',
+            'version' => '1.0.0.0',
+            'reference' => null,
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -25,24 +25,6 @@
             'reference' => '049509fef80032cb3f051595029ab75b49a3c2f7',
             'type' => 'library',
             'install_path' => __DIR__ . '/../clue/stream-filter',
-            'aliases' => array(),
-            'dev_requirement' => false,
-        ),
-        'guzzlehttp/psr7' => array(
-            'pretty_version' => '1.9.1',
-            'version' => '1.9.1.0',
-            'reference' => 'e4490cabc77465aaee90b20cfc9a770f8c04be6b',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../guzzlehttp/psr7',
-            'aliases' => array(),
-            'dev_requirement' => false,
-        ),
-        'http-interop/http-factory-guzzle' => array(
-            'pretty_version' => '1.2.0',
-            'version' => '1.2.0.0',
-            'reference' => '8f06e92b95405216b237521cc64c804dd44c4a81',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../http-interop/http-factory-guzzle',
             'aliases' => array(),
             'dev_requirement' => false,
         ),
@@ -64,11 +46,19 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'nyholm/psr7' => array(
+            'pretty_version' => '1.8.2',
+            'version' => '1.8.2.0',
+            'reference' => 'a71f2b11690f4b24d099d6b16690a90ae14fc6f3',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../nyholm/psr7',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'php-http/async-client-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '1.0',
-                1 => '*',
+                0 => '*',
             ),
         ),
         'php-http/client-common' => array(
@@ -83,18 +73,8 @@
         'php-http/client-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '1.0',
-                1 => '*',
+                0 => '*',
             ),
-        ),
-        'php-http/curl-client' => array(
-            'pretty_version' => '2.3.2',
-            'version' => '2.3.2.0',
-            'reference' => '0b869922458b1cde9137374545ed4fff7ac83623',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../php-http/curl-client',
-            'aliases' => array(),
-            'dev_requirement' => false,
         ),
         'php-http/discovery' => array(
             'pretty_version' => '1.20.0',
@@ -159,8 +139,7 @@
         'psr/http-client-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '1.0',
-                1 => '*',
+                0 => '*',
             ),
         ),
         'psr/http-factory' => array(
@@ -175,8 +154,8 @@
         'psr/http-factory-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '*',
-                1 => '^1.0',
+                0 => '1.0',
+                1 => '*',
             ),
         ),
         'psr/http-message' => array(
@@ -196,20 +175,11 @@
             ),
         ),
         'psr/log' => array(
-            'pretty_version' => '1.1.4',
-            'version' => '1.1.4.0',
-            'reference' => 'd49695b909c3b7628b6289db5479a1c204601f11',
+            'pretty_version' => '3.0.2',
+            'version' => '3.0.2.0',
+            'reference' => 'f16e1d5863e37f8d8c2a01719f5b34baa2b714d3',
             'type' => 'library',
             'install_path' => __DIR__ . '/../psr/log',
-            'aliases' => array(),
-            'dev_requirement' => false,
-        ),
-        'ralouphie/getallheaders' => array(
-            'pretty_version' => '3.0.3',
-            'version' => '3.0.3.0',
-            'reference' => '120b605dfeb996808c31b6477290a714d356e822',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../ralouphie/getallheaders',
             'aliases' => array(),
             'dev_requirement' => false,
         ),

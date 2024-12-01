@@ -43,14 +43,14 @@ foreach ($horaires as $horaire) {
       <ul class="navbar_desktop">
         <li><a href="../index.php">Accueil</a></li>
         <li><a href="../pages/page_services.php">Services</a></li>
-        <li><a href="../pages/page_habitat.php">Habitats</a></li>
+        <li><a href="../pages/page_habitats.php">Habitats</a></li>
         <li><a href="../pages/animaux.php">Animaux</a></li>
         <li><a href="../pages/avis.php">Vos avis</a></li>
       </ul>
       <ul class="navbar_mobile" id="navbar_mobile">
         <li><a href="../index.php">Accueil</a></li>
         <li><a href="../pages/page_services.php">Services</a></li>
-        <li><a href="../pages/page_habitat.php">Habitats</a></li>
+        <li><a href="../pages/page_habitats.php">Habitats</a></li>
         <li><a href="../pages/animaux.php">Animaux</a></li>
         <li><a href="../pages/avis.php">Vos avis</a></li>
       </ul>

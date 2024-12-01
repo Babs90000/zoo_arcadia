@@ -33,11 +33,11 @@ switch ($role_utilisateur) {
 <main>
         <div class="container">
             <h1>Bienvenue dans l'Espace Admin</h1>
-            <p>Bonjour <?php echo $prenom; ?>, vous êtes connecté !</p>
-        <a href="gestion_service.php">Gestion des services</a><br>
+            <p>Bonjour <?php echo htmlspecialchars($prenom); ?>, vous êtes connecté !</p>
+        <a href="gestion_services.php">Gestion des services</a><br>
         <a href="inscription_utilisateur.php">Gestion des utilisateurs</a><br>
         <a href="gestion_animaux.php">Gestion des animaux</a><br>
-        <a href="gestion_habitat.php">Gestion des habitats</a><br>
+        <a href="gestion_habitats.php">Gestion des habitats</a><br>
         <a href="modification_horaire.php">Modification des horaires</a><br>
         <a href="rapports_veterinaires.php">Rapports vétérinaires</a><br>
         <a href="decompte_visite_animaux.php">Décompte des visites des animaux</a><br>

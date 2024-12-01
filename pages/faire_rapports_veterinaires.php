@@ -16,16 +16,20 @@ $alert_message = '';
 $alert_class = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (!empty($_POST['animal_id']) && !empty($_POST['etat_animal']) && !empty($_POST['nourriture_proposee']) && !empty($_POST['grammage_nourriture']) && !empty($_POST['date_passage'])) {
-        $animal_id = htmlspecialchars($_POST['animal_id']);
-        $etat_animal = htmlspecialchars($_POST['etat_animal']);
-        $nourriture_proposee = htmlspecialchars($_POST['nourriture_proposee']);
-        $grammage_nourriture = htmlspecialchars($_POST['grammage_nourriture']);
-        $date_passage = htmlspecialchars($_POST['date_passage']);
-        $detail_etat_animal = !empty($_POST['detail_etat_animal']) ? htmlspecialchars($_POST['detail_etat_animal']) : null;
+    if (!empty($_POST['animal_id']) && !empty($_POST['etat_animal']) && !empty($_POST['nourriture_proposee']) 
+    && !empty($_POST['grammage_nourriture']) && !empty($_POST['date_passage'])) {
+        $animal_id = htmlspecialcharss($_POST['animal_id']);
+        $etat_animal = htmlspecialcharss($_POST['etat_animal']);
+        $nourriture_proposee = htmlspecialcharss($_POST['nourriture_proposee']);
+        $grammage_nourriture = htmlspecialcharss($_POST['grammage_nourriture']);
+        $date_passage = htmlspecialcharss($_POST['date_passage']);
+        $detail_etat_animal = !empty($_POST['detail_etat_animal']) ? htmlspecialcharss($_POST['detail_etat_animal']) : null;
         $username = $_SESSION['username'];
 
-        $sql = "INSERT INTO rapports_veterinaires (animal_id, etat_animal, nourriture_proposee, grammage_nourriture, date_passage, detail_etat_animal, username) VALUES (:animal_id, :etat_animal, :nourriture_proposee, :grammage_nourriture, :date_passage, :detail_etat_animal, :username)";
+        $sql = "INSERT INTO rapports_veterinaires (animal_id, etat_animal, nourriture_proposee, 
+        grammage_nourriture, date_passage, detail_etat_animal, username) VALUES (:animal_id, :etat_animal,
+         :nourriture_proposee, :grammage_nourriture, :date_passage, :detail_etat_animal, :username)";
+         
         $statement = $bdd->prepare($sql);
         $statement->execute([
             ':animal_id' => $animal_id,
@@ -98,7 +102,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           class="logo_arcadia"
         />
         <ul>
-          <li><a href="../public/index.php">Accueil</a></li>
+          <li><a href="../index.php">Accueil</a></li>
           <li><a href="page_services.php">Services</a></li>
           <li><a href="page_habitat.php">Habitats</a></li>
           <li><a href="avis.php">Vos avis</a></li>
@@ -127,7 +131,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <h2 class="text-success text-center mb-4">Créer un rapport vétérinaire</h2>
         <?php if ($alert_message): ?>
             <div class="alert <?php echo $alert_class; ?>" role="alert">
-                <?php echo $alert_message; ?>
+                <?php echo htmlspecialchars($alert_message); ?>
             </div>
         <?php endif; ?>
         <form action="" method="post">
@@ -136,7 +140,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <select class="form-control" id="animal_id" name="animal_id" required>
                     <option value="">--Sélectionner un animal--</option>
                     <?php foreach ($animaux as $animal): ?>
-                        <option value="<?php echo $animal['animal_id']; ?>"><?php echo $animal['prenom']; ?></option>
+                        <option value="<?php echo htmlspecialchars($animal['animal_id']); ?>"><?php echo htmlspecialchars($animal['prenom']); ?></option>
                     <?php endforeach; ?>
                 </select>
             </div>
@@ -171,11 +175,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <button class="btn btn-secondary btn-retour" onclick="goBack()">Retour</button>
     </div>
 
-    <script>
-    function goBack() {
-        window.history.back();
-    }
-</script>
    
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>

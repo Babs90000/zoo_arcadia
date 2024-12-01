@@ -28,7 +28,8 @@ class Veterinaire extends Utilisateur {
     }
 
     public function save() {
-        $statement = $this->bdd->prepare('INSERT INTO utilisateurs (username, password, nom, prenom, role_id) VALUES (:username, :password, :nom, :prenom, :role)');
+        $statement = $this->bdd->prepare('INSERT INTO utilisateurs (username, password, nom, prenom, role_id) 
+                                        VALUES (:username, :password, :nom, :prenom, :role)');
         $statement->bindValue(':username', $this->username);
         $statement->bindValue(':password', $this->password);
         $statement->bindValue(':nom', $this->nom);

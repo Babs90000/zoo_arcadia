@@ -34,11 +34,11 @@ $alimentation = $bdd->query($sql)->fetchAll(PDO::FETCH_ASSOC);
                     <tbody>
                         <?php foreach ($alimentation as $row): ?>
                             <tr>
-                                <td><?php echo $row['prenom']; ?></td>
-                                <td><?php echo $row['date']; ?></td>
-                                <td><?php echo $row['heure']; ?></td>
-                                <td><?php echo $row['type_nourriture']; ?></td>
-                                <td><?php echo $row['quantite_grammes']; ?></td>
+                                <td><?php echo htmlspecialchars($row['prenom']); ?></td>
+                                <td><?php echo htmlspecialchars($row['date']); ?></td>
+                                <td><?php echo htmlspecialchars($row['heure']); ?></td>
+                                <td><?php echo htmlspecialchars($row['type_nourriture']); ?></td>
+                                <td><?php echo htmlspecialchars($row['quantite_grammes']); ?></td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
@@ -49,10 +49,6 @@ $alimentation = $bdd->query($sql)->fetchAll(PDO::FETCH_ASSOC);
             <button class="btn btn-secondary btn-retour" onclick="goBack()">Retour</button>
         </div>
     </main>
-    <script>
-    function goBack() {
-        window.history.back();
-    }
-</script>
+   
 </body>
 </html>

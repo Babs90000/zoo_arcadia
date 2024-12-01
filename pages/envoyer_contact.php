@@ -20,7 +20,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       'to'      => 'employearcadia@gmail.com', 
       'subject' => "Nouveau message de contact de " . $name,
       'text'    => "Nom: " . $name . "\nEmail: " . $email . "\nMessage: \n" . $message,
-      'html'    => "Nom: " . $name . "<br>Email: " . $email . "<br>Message: <br>" . nl2br($message)
     ]);
     echo "Votre message a bien été envoyé.</br>";
   } catch (Exception $e) {
