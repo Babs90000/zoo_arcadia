@@ -1,4 +1,6 @@
-<?php require_once '../template/header.php'; ?>
+<?php require_once '../template/header.php';
+ini_set('memory_limit', '256M');
+ ?>
 
 <div class="searchContainer">
     <label for="animalSearchBar">Rechercher un animal
