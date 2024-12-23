@@ -3,7 +3,7 @@
         'name' => 'admin/zoo_arcadia',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'bf0fb96caf5b2f13bc4f74f14c5d08e93f838122',
+        'reference' => '6f11138e7528aec65e8bddece8a080d3baf362fa',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'admin/zoo_arcadia' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'bf0fb96caf5b2f13bc4f74f14c5d08e93f838122',
+            'reference' => '6f11138e7528aec65e8bddece8a080d3baf362fa',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
