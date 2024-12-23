@@ -1,3 +1,4 @@
+<?php
 session_start();
 require_once '../configuration/env.php';
 require_once '../vendor/autoload.php';
@@ -31,8 +32,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $phpmailer->isSMTP();
             $phpmailer->Host = 'smtp.gmail.com'; // Adresse du serveur SMTP de Gmail
             $phpmailer->SMTPAuth = true;
-            $phpmailer->Username = 'votre-email@gmail.com'; // Votre adresse e-mail Gmail
-            $phpmailer->Password = 'votre-mot-de-passe'; // Votre mot de passe Gmail
+            $phpmailer->Username = 'camara.enc@gmail.com'; // Votre adresse e-mail Gmail
+            $phpmailer->Password = 'xrkq tbyu auoe ngot'; // Votre mot de passe Gmail
             $phpmailer->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $phpmailer->Port = 587;
 
@@ -43,9 +44,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $phpmailer->CharSet = 'UTF-8';
 
             // En-têtes de l'e-mail
-            $phpmailer->setFrom('votre-email@gmail.com', 'Votre Nom'); // Utiliser votre adresse e-mail comme expéditeur
-            $phpmailer->addAddress($email); // Ajouter le destinataire
-            $phpmailer->addReplyTo('votre-email@gmail.com', 'Votre Nom'); // Ajouter l'adresse e-mail de réponse
+            $phpmailer->setFrom('camara.enc@gmail.com', 'Babou-CAMARA-DIABY'); // Utiliser votre adresse e-mail comme expéditeur
+            $phpmailer->addAddress($username); // Ajouter le destinataire
+            $phpmailer->addReplyTo('camara.enc@gmail.com', 'Babou-CAMARA-DIABY'); // Ajouter l'adresse e-mail de réponse
 
             // Contenu de l'e-mail
             $phpmailer->isHTML(false); // Envoyer l'e-mail en texte brut
