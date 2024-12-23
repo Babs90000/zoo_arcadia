@@ -13,10 +13,7 @@ class ComposerStaticInitc970f1a266f43a2118de462ce989b839
         '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
         '0d59ee240a4cd96ddbb4ff164fccea4d' => __DIR__ . '/..' . '/symfony/polyfill-php73/bootstrap.php',
         '8cff32064859f4559445b89279f3199c' => __DIR__ . '/..' . '/php-http/message/src/filters.php',
-<<<<<<< HEAD
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
-=======
->>>>>>> 9f9c0c573ce0135f9bdefdb57e5159c2e1483a67
         '23c18046f52bef3eea034657bafda50f' => __DIR__ . '/..' . '/symfony/polyfill-php81/bootstrap.php',
         '3a37ebac017bc098e9a86b35401e7a68' => __DIR__ . '/..' . '/mongodb/mongodb/src/functions.php',
     );
@@ -58,15 +55,12 @@ class ComposerStaticInitc970f1a266f43a2118de462ce989b839
             'Http\\Client\\' => 12,
             'Http\\Adapter\\Guzzle7\\' => 21,
         ),
-<<<<<<< HEAD
         'G' => 
         array (
             'GuzzleHttp\\Psr7\\' => 16,
             'GuzzleHttp\\Promise\\' => 19,
             'GuzzleHttp\\' => 11,
         ),
-=======
->>>>>>> 9f9c0c573ce0135f9bdefdb57e5159c2e1483a67
         'C' => 
         array (
             'Clue\\StreamFilter\\' => 18,
@@ -143,7 +137,6 @@ class ComposerStaticInitc970f1a266f43a2118de462ce989b839
         array (
             0 => __DIR__ . '/..' . '/php-http/httplug/src',
         ),
-<<<<<<< HEAD
         'Http\\Adapter\\Guzzle7\\' => 
         array (
             0 => __DIR__ . '/..' . '/php-http/guzzle7-adapter/src',
@@ -160,8 +153,6 @@ class ComposerStaticInitc970f1a266f43a2118de462ce989b839
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
         ),
-=======
->>>>>>> 9f9c0c573ce0135f9bdefdb57e5159c2e1483a67
         'Clue\\StreamFilter\\' => 
         array (
             0 => __DIR__ . '/..' . '/clue/stream-filter/src',
