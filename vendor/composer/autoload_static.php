@@ -4,16 +4,13 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit02eebe92f9970a371ce4d9b1b8049011
+class ComposerStaticInite34934acd3e36e953abae6394a56fe50
 {
     public static $files = array (
-        'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
-        '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
         '9c67151ae59aff4788964ce8eb2a0f43' => __DIR__ . '/..' . '/clue/stream-filter/src/functions_include.php',
-        '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
-        '0d59ee240a4cd96ddbb4ff164fccea4d' => __DIR__ . '/..' . '/symfony/polyfill-php73/bootstrap.php',
+        '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
+        'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
         '8cff32064859f4559445b89279f3199c' => __DIR__ . '/..' . '/php-http/message/src/filters.php',
-        '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         '23c18046f52bef3eea034657bafda50f' => __DIR__ . '/..' . '/symfony/polyfill-php81/bootstrap.php',
         '3a37ebac017bc098e9a86b35401e7a68' => __DIR__ . '/..' . '/mongodb/mongodb/src/functions.php',
     );
@@ -27,7 +24,6 @@ class ComposerStaticInit02eebe92f9970a371ce4d9b1b8049011
         array (
             'Symfony\\Polyfill\\Php81\\' => 23,
             'Symfony\\Polyfill\\Php80\\' => 23,
-            'Symfony\\Polyfill\\Php73\\' => 23,
             'Symfony\\Component\\OptionsResolver\\' => 34,
         ),
         'P' => 
@@ -35,7 +31,6 @@ class ComposerStaticInit02eebe92f9970a371ce4d9b1b8049011
             'Psr\\Log\\' => 8,
             'Psr\\Http\\Message\\' => 17,
             'Psr\\Http\\Client\\' => 16,
-            'PHPMailer\\PHPMailer\\' => 20,
         ),
         'N' => 
         array (
@@ -54,13 +49,6 @@ class ComposerStaticInit02eebe92f9970a371ce4d9b1b8049011
             'Http\\Discovery\\' => 15,
             'Http\\Client\\Common\\' => 19,
             'Http\\Client\\' => 12,
-            'Http\\Adapter\\Guzzle7\\' => 21,
-        ),
-        'G' => 
-        array (
-            'GuzzleHttp\\Psr7\\' => 16,
-            'GuzzleHttp\\Promise\\' => 19,
-            'GuzzleHttp\\' => 11,
         ),
         'C' => 
         array (
@@ -81,10 +69,6 @@ class ComposerStaticInit02eebe92f9970a371ce4d9b1b8049011
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-php80',
         ),
-        'Symfony\\Polyfill\\Php73\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/symfony/polyfill-php73',
-        ),
         'Symfony\\Component\\OptionsResolver\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/options-resolver',
@@ -101,10 +85,6 @@ class ComposerStaticInit02eebe92f9970a371ce4d9b1b8049011
         'Psr\\Http\\Client\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/http-client/src',
-        ),
-        'PHPMailer\\PHPMailer\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
         ),
         'Nyholm\\Psr7\\' => 
         array (
@@ -142,22 +122,6 @@ class ComposerStaticInit02eebe92f9970a371ce4d9b1b8049011
         array (
             0 => __DIR__ . '/..' . '/php-http/httplug/src',
         ),
-        'Http\\Adapter\\Guzzle7\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/php-http/guzzle7-adapter/src',
-        ),
-        'GuzzleHttp\\Psr7\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
-        ),
-        'GuzzleHttp\\Promise\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/guzzlehttp/promises/src',
-        ),
-        'GuzzleHttp\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
-        ),
         'Clue\\StreamFilter\\' => 
         array (
             0 => __DIR__ . '/..' . '/clue/stream-filter/src',
@@ -168,7 +132,6 @@ class ComposerStaticInit02eebe92f9970a371ce4d9b1b8049011
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'CURLStringFile' => __DIR__ . '/..' . '/symfony/polyfill-php81/Resources/stubs/CURLStringFile.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
-        'JsonException' => __DIR__ . '/..' . '/symfony/polyfill-php73/Resources/stubs/JsonException.php',
         'PhpToken' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/PhpToken.php',
         'ReturnTypeWillChange' => __DIR__ . '/..' . '/symfony/polyfill-php81/Resources/stubs/ReturnTypeWillChange.php',
         'Stringable' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Stringable.php',
@@ -179,9 +142,9 @@ class ComposerStaticInit02eebe92f9970a371ce4d9b1b8049011
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit02eebe92f9970a371ce4d9b1b8049011::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit02eebe92f9970a371ce4d9b1b8049011::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit02eebe92f9970a371ce4d9b1b8049011::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInite34934acd3e36e953abae6394a56fe50::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInite34934acd3e36e953abae6394a56fe50::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInite34934acd3e36e953abae6394a56fe50::$classMap;
 
         }, null, ClassLoader::class);
     }
