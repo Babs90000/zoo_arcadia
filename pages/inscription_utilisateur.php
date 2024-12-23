@@ -4,8 +4,9 @@ require_once '../configuration/env.php';
 require_once '../vendor/autoload.php';
 
 use Mailgun\Mailgun;
+use Nyholm\Psr7\Factory\Psr17Factory;
 
-if ($_SESSION['role'] !=1) {
+if (!isset($_SESSION['role']) || $_SESSION['role'] != 1) {
     $_SESSION['message'] = 'Accès refusé. Vous devez être administrateur pour accéder à cette page.';
     $_SESSION['message_type'] = 'danger';
     header('Location: ../index.php');
@@ -32,19 +33,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 ':role_id' => $role_id
             ]);
 
-              // Envoi de l'email de notification
-              $apiKey = getenv('MAILGUN_API_KEY');
-              $domain = getenv('MAILGUN_DOMAIN');
-              $mgClient = Mailgun::create($apiKey);
-  
-              $mgClient->messages()->send($domain, [
-                  'from'    => 'employearcadia@gmail.com',
-                  'to'      => $username,
-                  'subject' => 'Votre compte a été créé',
-                  'text'    => "Bonjour $prenom $nom,\n\nVotre compte a été créé avec succès. Veuillez contacter l'administrateur pour obtenir votre mot de passe.\n\nCordialement,\nL'équipe Arcadia"
-              ]);
+            // Envoi de l'email de notification
+            $apiKey = getenv('MAILGUN_API_KEY');
+            $domain = getenv('MAILGUN_DOMAIN');
+            $mgClient = Mailgun::create($apiKey, new Psr17Factory());
 
-            $_SESSION['message'] = 'Utilisateur créé avec succès.';
+            $mgClient->messages()->send($domain, [
+                'from'    => 'employearcadia@gmail.com',
+                'to'      => $username,
+                'subject' => 'Votre compte a été créé',
+                'text'    => "Bonjour $prenom $nom,\n\nVotre compte a été créé avec succès. Veuillez contacter l'administrateur pour obtenir votre mot de passe.\n\nCordialement,\nL'équipe Arcadia"
+            ]);
+
+            $_SESSION['message'] = 'Utilisateur créé avec succès et email de notification envoyé.';
             $_SESSION['message_type'] = 'success';
         } catch (Exception $e) {
             $_SESSION['message'] = 'Erreur lors de la création de l\'utilisateur : ' . $e->getMessage();
