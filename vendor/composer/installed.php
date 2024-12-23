@@ -3,7 +3,7 @@
         'name' => 'admin/zoo_arcadia',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '3c49180b213bc454ad3d23b070a5b624ae18e8fd',
+        'reference' => 'bf0fb96caf5b2f13bc4f74f14c5d08e93f838122',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'admin/zoo_arcadia' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '3c49180b213bc454ad3d23b070a5b624ae18e8fd',
+            'reference' => 'bf0fb96caf5b2f13bc4f74f14c5d08e93f838122',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -154,8 +154,8 @@
         'psr/http-factory-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '*',
-                1 => '1.0',
+                0 => '1.0',
+                1 => '*',
             ),
         ),
         'psr/http-message' => array(
@@ -170,8 +170,8 @@
         'psr/http-message-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '*',
-                1 => '1.0',
+                0 => '1.0',
+                1 => '*',
             ),
         ),
         'psr/log' => array(

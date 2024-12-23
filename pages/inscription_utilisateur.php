@@ -232,6 +232,7 @@ $utilisateurs = $bdd->query($query)->fetchAll(PDO::FETCH_ASSOC);
             <p>Aucun utilisateur trouvé.</p>
         <?php endif; ?>
     </div>
+    <button class="btn btn-secondary btn-retour" onclick="goBack()">Retour</button>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
