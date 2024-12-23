@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             // En-têtes de l'e-mail
             $phpmailer->setFrom('camara.enc@gmail.com', 'Babou-CAMARA-DIABY'); // Utiliser votre adresse e-mail comme expéditeur
-            $phpmailer->addAddress($username); // Ajouter le destinataire
+            $phpmailer->addAddress($email); // Ajouter le destinataire
             $phpmailer->addReplyTo('camara.enc@gmail.com', 'Babou-CAMARA-DIABY'); // Ajouter l'adresse e-mail de réponse
 
             // Contenu de l'e-mail
