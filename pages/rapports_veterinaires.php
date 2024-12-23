@@ -37,12 +37,12 @@
         if (count($rapports) > 0) {
             foreach ($rapports as $rapport) {
                 echo "<div class='rapport_item'>";
-                echo "<p><strong>Prénom de l'animal :</strong> " . htmlspecialchar($rapport['prenom']) . "</p>";
-                echo "<p><strong>Date de passage :</strong> " . htmlspecialchar($rapport['date_passage']) . "</p>";
-                echo "<p><strong>État de l'animal :</strong> " . htmlspecialchar($rapport['etat_animal']) . "</p>";
-                echo "<p><strong>Nourriture proposée :</strong> " . htmlspecialchar($rapport['nourriture_proposee']) . "</p>";
-                echo "<p><strong>Grammage de la nourriture :</strong> " . htmlspecialchar($rapport['grammage_nourriture']) . "</p>";
-                echo "<p><strong>Détails de l'état de l'animal :</strong> " . htmlspecialchar($rapport['detail_etat_animal']) . "</p>";
+                echo "<p><strong>Prénom de l'animal :</strong> " . htmlspecialchars($rapport['prenom']) . "</p>";
+                echo "<p><strong>Date de passage :</strong> " . htmlspecialchars($rapport['date_passage']) . "</p>";
+                echo "<p><strong>État de l'animal :</strong> " . htmlspecialchars($rapport['etat_animal']) . "</p>";
+                echo "<p><strong>Nourriture proposée :</strong> " . htmlspecialchars($rapport['nourriture_proposee']) . "</p>";
+                echo "<p><strong>Grammage de la nourriture :</strong> " . htmlspecialchars($rapport['grammage_nourriture']) . "</p>";
+                echo "<p><strong>Détails de l'état de l'animal :</strong> " . htmlspecialchars($rapport['detail_etat_animal']) . "</p>";
                 echo "</div><hr>";
             }
         } else {

@@ -74,7 +74,6 @@ document.getElementById("button_menu_mobile").addEventListener("click", function
 	});
 
 
-
         function goBack() {
             window.history.back();
         }
