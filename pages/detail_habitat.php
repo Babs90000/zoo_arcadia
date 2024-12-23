@@ -50,7 +50,10 @@
                     }
                 } else {
                     echo "<p>" . htmlspecialchars("ID de l'habitat manquant.") . "</p>";
+<<<<<<< HEAD
                 }
+=======
+>>>>>>> 9f9c0c573ce0135f9bdefdb57e5159c2e1483a67
                 ?>
             </div>
         </div>

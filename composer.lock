@@ -4,7 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "content-hash": "cc895918c02b51db0b012843ce6eaf46",
+=======
+    "content-hash": "00a2e3b8210f0f3c0b047f15267e565d",
+>>>>>>> 9f9c0c573ce0135f9bdefdb57e5159c2e1483a67
     "packages": [
         {
             "name": "clue/stream-filter",
@@ -73,6 +77,7 @@
             "time": "2023-12-20T15:40:13+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "guzzlehttp/guzzle",
             "version": "7.9.2",
             "source": {
@@ -398,6 +403,8 @@
             "time": "2024-07-18T11:15:46+00:00"
         },
         {
+=======
+>>>>>>> 9f9c0c573ce0135f9bdefdb57e5159c2e1483a67
             "name": "mailgun/mailgun-php",
             "version": "v4.3.2",
             "source": {
@@ -1266,6 +1273,7 @@
                 "source": "https://github.com/php-fig/log/tree/3.0.2"
             },
             "time": "2024-09-11T13:17:53+00:00"
+<<<<<<< HEAD
         },
         {
             "name": "ralouphie/getallheaders",
@@ -1310,6 +1318,8 @@
                 "source": "https://github.com/ralouphie/getallheaders/tree/develop"
             },
             "time": "2019-03-08T08:55:37+00:00"
+=======
+>>>>>>> 9f9c0c573ce0135f9bdefdb57e5159c2e1483a67
         },
         {
             "name": "symfony/deprecation-contracts",

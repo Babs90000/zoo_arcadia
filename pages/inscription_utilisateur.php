@@ -3,7 +3,12 @@ session_start();
 require_once '../configuration/env.php';
 require_once '../vendor/autoload.php';
 
+<<<<<<< HEAD
 use Mailgun\Mailgun;
+=======
+require_once '../classes/admin.php';
+require_once '../template/header.php';
+>>>>>>> 9f9c0c573ce0135f9bdefdb57e5159c2e1483a67
 
 if ($_SESSION['role'] !=1) {
     $_SESSION['message'] = 'Accès refusé. Vous devez être administrateur pour accéder à cette page.';
@@ -184,6 +189,7 @@ $utilisateurs = $bdd->query($query)->fetchAll(PDO::FETCH_ASSOC);
 
         <hr>
 
+<<<<<<< HEAD
         <h3>Liste des utilisateurs existants</h3>
         <?php if (!empty($utilisateurs)): ?>
             <?php foreach ($utilisateurs as $utilisateur): ?>
@@ -191,6 +197,9 @@ $utilisateurs = $bdd->query($query)->fetchAll(PDO::FETCH_ASSOC);
                     <h4><?php echo htmlspecialchars($utilisateur['prenom']) . ' ' . htmlspecialchars($utilisateur['nom']); ?></h4>
                     <p><strong>Nom d'utilisateur :</strong> <?php echo htmlspecialchars($utilisateur['username']); ?></p>
                     <p><strong>Rôle :</strong> <?php echo htmlspecialchars($utilisateur['role_id']); ?></p>
+=======
+
+>>>>>>> 9f9c0c573ce0135f9bdefdb57e5159c2e1483a67
 
                     <form action="" method="post" class="mb-3">
                         <input type="hidden" name="action" value="modifier">

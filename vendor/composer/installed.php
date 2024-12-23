@@ -1,9 +1,15 @@
 <?php return array(
     'root' => array(
         'name' => 'admin/zoo_arcadia',
+<<<<<<< HEAD
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
         'reference' => '9f9c0c573ce0135f9bdefdb57e5159c2e1483a67',
+=======
+        'pretty_version' => '1.0.0+no-version-set',
+        'version' => '1.0.0.0',
+        'reference' => null,
+>>>>>>> 9f9c0c573ce0135f9bdefdb57e5159c2e1483a67
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -11,9 +17,15 @@
     ),
     'versions' => array(
         'admin/zoo_arcadia' => array(
+<<<<<<< HEAD
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
             'reference' => '9f9c0c573ce0135f9bdefdb57e5159c2e1483a67',
+=======
+            'pretty_version' => '1.0.0+no-version-set',
+            'version' => '1.0.0.0',
+            'reference' => null,
+>>>>>>> 9f9c0c573ce0135f9bdefdb57e5159c2e1483a67
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -28,6 +40,7 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+<<<<<<< HEAD
         'guzzlehttp/guzzle' => array(
             'pretty_version' => '7.9.2',
             'version' => '7.9.2.0',
@@ -55,6 +68,8 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+=======
+>>>>>>> 9f9c0c573ce0135f9bdefdb57e5159c2e1483a67
         'mailgun/mailgun-php' => array(
             'pretty_version' => 'v4.3.2',
             'version' => '4.3.2.0',
@@ -86,7 +101,10 @@
             'dev_requirement' => false,
             'provided' => array(
                 0 => '*',
+<<<<<<< HEAD
                 1 => '1.0',
+=======
+>>>>>>> 9f9c0c573ce0135f9bdefdb57e5159c2e1483a67
             ),
         ),
         'php-http/client-common' => array(
@@ -102,7 +120,10 @@
             'dev_requirement' => false,
             'provided' => array(
                 0 => '*',
+<<<<<<< HEAD
                 1 => '1.0',
+=======
+>>>>>>> 9f9c0c573ce0135f9bdefdb57e5159c2e1483a67
             ),
         ),
         'php-http/discovery' => array(
@@ -177,8 +198,7 @@
         'psr/http-client-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '1.0',
-                1 => '*',
+                0 => '*',
             ),
         ),
         'psr/http-factory' => array(
@@ -219,15 +239,6 @@
             'reference' => 'f16e1d5863e37f8d8c2a01719f5b34baa2b714d3',
             'type' => 'library',
             'install_path' => __DIR__ . '/../psr/log',
-            'aliases' => array(),
-            'dev_requirement' => false,
-        ),
-        'ralouphie/getallheaders' => array(
-            'pretty_version' => '3.0.3',
-            'version' => '3.0.3.0',
-            'reference' => '120b605dfeb996808c31b6477290a714d356e822',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../ralouphie/getallheaders',
             'aliases' => array(),
             'dev_requirement' => false,
         ),

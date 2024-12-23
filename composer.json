@@ -9,8 +9,12 @@
     "require": {
         "mailgun/mailgun-php": "^4.3",
         "nyholm/psr7": "^1.8",
+<<<<<<< HEAD
         "mongodb/mongodb": "^1.20",
         "php-http/guzzle7-adapter": "^1.1"
+=======
+        "mongodb/mongodb": "^1.20"
+>>>>>>> 9f9c0c573ce0135f9bdefdb57e5159c2e1483a67
     },
     "config": {
         "allow-plugins": {

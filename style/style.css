@@ -168,7 +168,11 @@ a {
 
 
 nav {
+<<<<<<< HEAD
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+=======
+
+>>>>>>> 9f9c0c573ce0135f9bdefdb57e5159c2e1483a67
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -179,7 +183,11 @@ nav {
     position: fixed;
     top: 0;
     z-index: 1;
+<<<<<<< HEAD
     color: white;   
+=======
+    color: white;
+>>>>>>> 9f9c0c573ce0135f9bdefdb57e5159c2e1483a67
 }
 
 .logo_arcadia {

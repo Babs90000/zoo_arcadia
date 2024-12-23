@@ -70,6 +70,7 @@
             "install-path": "../clue/stream-filter"
         },
         {
+<<<<<<< HEAD
             "name": "guzzlehttp/guzzle",
             "version": "7.9.2",
             "version_normalized": "7.9.2.0",
@@ -404,6 +405,8 @@
             "install-path": "../guzzlehttp/psr7"
         },
         {
+=======
+>>>>>>> 9f9c0c573ce0135f9bdefdb57e5159c2e1483a67
             "name": "mailgun/mailgun-php",
             "version": "v4.3.2",
             "version_normalized": "4.3.2.0",
@@ -1316,6 +1319,7 @@
             "install-path": "../psr/log"
         },
         {
+<<<<<<< HEAD
             "name": "ralouphie/getallheaders",
             "version": "3.0.3",
             "version_normalized": "3.0.3.0",
@@ -1363,6 +1367,8 @@
             "install-path": "../ralouphie/getallheaders"
         },
         {
+=======
+>>>>>>> 9f9c0c573ce0135f9bdefdb57e5159c2e1483a67
             "name": "symfony/deprecation-contracts",
             "version": "v2.5.3",
             "version_normalized": "2.5.3.0",

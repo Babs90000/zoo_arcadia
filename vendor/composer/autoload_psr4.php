@@ -23,9 +23,12 @@ return array(
     'Http\\Discovery\\' => array($vendorDir . '/php-http/discovery/src'),
     'Http\\Client\\Common\\' => array($vendorDir . '/php-http/client-common/src'),
     'Http\\Client\\' => array($vendorDir . '/php-http/httplug/src'),
+<<<<<<< HEAD
     'Http\\Adapter\\Guzzle7\\' => array($vendorDir . '/php-http/guzzle7-adapter/src'),
     'GuzzleHttp\\Psr7\\' => array($vendorDir . '/guzzlehttp/psr7/src'),
     'GuzzleHttp\\Promise\\' => array($vendorDir . '/guzzlehttp/promises/src'),
     'GuzzleHttp\\' => array($vendorDir . '/guzzlehttp/guzzle/src'),
+=======
+>>>>>>> 9f9c0c573ce0135f9bdefdb57e5159c2e1483a67
     'Clue\\StreamFilter\\' => array($vendorDir . '/clue/stream-filter/src'),
 );
