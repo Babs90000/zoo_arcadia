@@ -3,8 +3,8 @@ session_start();
 require_once '../configuration/env.php';
 require_once '../vendor/autoload.php';
 
-use Mailgun\Mailgun;
-use Nyholm\Psr7\Factory\Psr17Factory;
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
 if (!isset($_SESSION['role']) || $_SESSION['role'] != 1) {
     $_SESSION['message'] = 'Accès refusé. Vous devez être administrateur pour accéder à cette page.';
@@ -34,19 +34,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ]);
 
             // Envoi de l'email de notification
-            $apiKey = getenv('MAILGUN_API_KEY');
-            $domain = getenv('MAILGUN_DOMAIN');
-            $mgClient = Mailgun::create($apiKey, new Psr17Factory());
+            $phpmailer = new PHPMailer(true);
 
-            $mgClient->messages()->send($domain, [
-                'from'    => 'employearcadia@gmail.com',
-                'to'      => $username,
-                'subject' => 'Votre compte a été créé',
-                'text'    => "Bonjour $prenom $nom,\n\nVotre compte a été créé avec succès. Veuillez contacter l'administrateur pour obtenir votre mot de passe.\n\nCordialement,\nL'équipe Arcadia"
-            ]);
+            try {
+                // Configuration du serveur SMTP
+                $phpmailer->isSMTP();
+                $phpmailer->Host = 'smtp.gmail.com'; // Adresse du serveur SMTP de Gmail
+                $phpmailer->SMTPAuth = true;
+                $phpmailer->Username = 'camara.enc@gmail.com'; // Votre adresse e-mail Gmail
+                $phpmailer->Password = 'xrkq tbyu auoe ngot'; // Votre mot de passe Gmail
+                $phpmailer->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+                $phpmailer->Port = 587;
 
-            $_SESSION['message'] = 'Utilisateur créé avec succès et email de notification envoyé.';
-            $_SESSION['message_type'] = 'success';
+                // Destinataires
+                $phpmailer->setFrom('camara.enc@gmail.com', 'Arcadia');
+                $phpmailer->addAddress($username); // Ajouter le destinataire
+
+                // Contenu de l'email
+                $phpmailer->isHTML(true);
+                $phpmailer->Subject = 'Votre compte a été créé';
+                $phpmailer->Body    = "Bonjour $prenom $nom,<br><br>Votre compte a été créé avec succès. Veuillez contacter l'administrateur pour obtenir votre mot de passe.<br><br>Cordialement,<br>L'équipe Arcadia";
+                $phpmailer->AltBody = "Bonjour $prenom $nom,\n\nVotre compte a été créé avec succès. Veuillez contacter l'administrateur pour obtenir votre mot de passe.\n\nCordialement,\nL'équipe Arcadia";
+
+                $phpmailer->send();
+                $_SESSION['message'] = 'Utilisateur créé avec succès et email de notification envoyé.';
+                $_SESSION['message_type'] = 'success';
+            } catch (Exception $e) {
+                $_SESSION['message'] = "L'email n'a pas pu être envoyé. Erreur: {$phpmailer->ErrorInfo}";
+                $_SESSION['message_type'] = 'danger';
+            }
         } catch (Exception $e) {
             $_SESSION['message'] = 'Erreur lors de la création de l\'utilisateur : ' . $e->getMessage();
             $_SESSION['message_type'] = 'danger';
