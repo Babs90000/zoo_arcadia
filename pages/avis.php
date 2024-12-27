@@ -28,7 +28,7 @@ $avis = $bdd->query($sql)->fetchAll(PDO::FETCH_ASSOC);
         <h2 class="text-success text-center mb-4">Laissez votre avis</h2>
         <?php  if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['laisser_avis'])) {
     $pseudo = htmlspecialchars($_POST['pseudo']);
-    $commentaire = htmlespcialchar($_POST['commentaire']);
+    $commentaire = htmlspecialchars($_POST['commentaire']);
 
     if (!empty($pseudo) && !empty($commentaire)) {
         $sql = "INSERT INTO avis (pseudo, commentaire, isVisible) VALUES (:pseudo, :commentaire, FALSE)";
