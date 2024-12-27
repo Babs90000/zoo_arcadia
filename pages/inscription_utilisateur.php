@@ -46,6 +46,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $phpmailer->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
                 $phpmailer->Port = 587;
 
+                // Configuration de l'encodage
+                $phpmailer->CharSet = 'UTF-8';
+
                 // Destinataires
                 $phpmailer->setFrom('camara.enc@gmail.com', 'Arcadia');
                 $phpmailer->addAddress($username); // Ajouter le destinataire
