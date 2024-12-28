@@ -29,16 +29,16 @@ $services = $bdd->query($sql)->fetchAll(PDO::FETCH_ASSOC);
                         echo '<img src="data:image/jpeg;base64,' . base64_encode($service['image_data']) . '" alt="Image du service" class="card-img-top style="height= 400px"">';
                     }
                     echo "<div class='card-body d-flex flex-column'>";
-                    echo "<h5 class='card-title text-success'>" . $service['nom'] . "</h5>";
-                    echo "<p class='card-text flex-grow-1'>" . $service['description'] . "</p>";
-                    echo "<p class='card-text'><strong>Prix:</strong> " . $service['prix'] . " </p>";
+                    echo "<h5 class='card-title text-success'>" . htmlspecialchars($service['nom']) . "</h5>";
+                    echo "<p class='card-text flex-grow-1'>" . htmlspecialchars($service['description']) . "</p>";
+                    echo "<p class='card-text'><strong>Prix:</strong> " . htmlspecialchars($service['prix']) . " </p>";
                     echo "</div>";
                     echo "</div>";
                     echo "</div>";
                 }
             } else {
-                echo "<p class='text-center'>Aucun service disponible.</p>";
-            }
+                echo "<p class='text-center'>" . htmlspecialchars("Aucun service disponible.") . "</p>";
+        }
             ?>
         </div>
     </div>

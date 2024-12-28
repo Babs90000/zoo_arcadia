@@ -2,6 +2,10 @@
 <link rel="stylesheet" href="../style/style.css" />
 <link rel="stylesheet" href="../style/style_rapports_veterinaires.css" />
 
+<?php if (!isset($_SESSION['role']) || ($_SESSION['role'] != 3 && $_SESSION['role'] != 1)) {
+    Header('Location: ../deconnexion.php');
+} 
+?>
     <h1 class="titre_rapports_veterinaires">Rapports Vétérinaires</h1>
     <div class="rapports_veterinaires">
 
@@ -33,12 +37,12 @@
         if (count($rapports) > 0) {
             foreach ($rapports as $rapport) {
                 echo "<div class='rapport_item'>";
-                echo "<p><strong>Prénom de l'animal :</strong> " . $rapport['prenom'] . "</p>";
-                echo "<p><strong>Date de passage :</strong> " . $rapport['date_passage'] . "</p>";
-                echo "<p><strong>État de l'animal :</strong> " . $rapport['etat_animal'] . "</p>";
-                echo "<p><strong>Nourriture proposée :</strong> " . $rapport['nourriture_proposee'] . "</p>";
-                echo "<p><strong>Grammage de la nourriture :</strong> " . $rapport['grammage_nourriture'] . "</p>";
-                echo "<p><strong>Détails de l'état de l'animal :</strong> " . $rapport['detail_etat_animal'] . "</p>";
+                echo "<p><strong>Prénom de l'animal :</strong> " . htmlspecialchars($rapport['prenom']) . "</p>";
+                echo "<p><strong>Date de passage :</strong> " . htmlspecialchars($rapport['date_passage']) . "</p>";
+                echo "<p><strong>État de l'animal :</strong> " . htmlspecialchars($rapport['etat_animal']) . "</p>";
+                echo "<p><strong>Nourriture proposée :</strong> " . htmlspecialchars($rapport['nourriture_proposee']) . "</p>";
+                echo "<p><strong>Grammage de la nourriture :</strong> " . htmlspecialchars($rapport['grammage_nourriture']) . "</p>";
+                echo "<p><strong>Détails de l'état de l'animal :</strong> " . htmlspecialchars($rapport['detail_etat_animal']) . "</p>";
                 echo "</div><hr>";
             }
         } else {
@@ -48,11 +52,7 @@
     </div>
     <button class="btn btn-secondary btn-retour" onclick="goBack()">Retour</button>
 
-<script>
-    function goBack() {
-        window.history.back();
-    }
-</script>
+
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>

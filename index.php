@@ -1,11 +1,5 @@
 <?php
 
-/* if (empty($_SERVER['HTTPS']) || $_SERVER['HTTPS'] === 'off') {
-  $redirect = 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-  header('HTTP/1.1 301 Moved Permanently');
-  header('Location: ' . $redirect);
-  exit();
-} */
 
 require_once './template/header.php';  ?>
 
@@ -73,7 +67,7 @@ require_once './template/header.php';  ?>
             foreach ($habitats as $habitat) {
               echo "<div class='col-md-4 mb-4'>";
               echo "<div class='card habitat_item'>";
-              echo "<a href='../pages/detail_habitat.php?habitat_id=" . $habitat['habitat_id'] . "' class='text-decoration-none'>";
+              echo "<a href='./pages/detail_habitat.php?habitat_id=" . $habitat['habitat_id'] . "' class='text-decoration-none'>";
               echo "<div class='card-body'>";
               echo "<p class='card-text text-center text-dark font-weight-bold'>" . $habitat['nom'] . "</p>";
               echo "</div>";
@@ -86,7 +80,7 @@ require_once './template/header.php';  ?>
           }
           ?>
         </div>
-        <p class="text-center mt-4"><a href="../pages/page_habitat.php" class="btn btn-success">Cliquez ici pour en savoir plus</a></p>
+        <p class="text-center mt-4"><a href="./pages/page_habitat.php" class="btn btn-success">Cliquez ici pour en savoir plus</a></p>
       </div>
     </div>
 

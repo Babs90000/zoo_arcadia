@@ -1,33 +1,48 @@
 <?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
 require '../vendor/autoload.php';
 
-use Mailgun\Mailgun;
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  $name = htmlspecialchars($_POST['name']);
-  $email = htmlspecialchars($_POST['email']);
-  $message = htmlspecialchars($_POST['message']);
+    $name = htmlspecialchars($_POST['name']);
+    $email = htmlspecialchars($_POST['email']);
+    $message = htmlspecialchars($_POST['message']);
 
+    $phpmailer = new PHPMailer(true);
 
-  $apiKey = getenv('MAILGUN_API_KEY');
-  $domain = getenv('MAILGUN_DOMAIN');
-  $mgClient = Mailgun::create($apiKey);
-  
-  try {
- 
-    $mgClient->messages()->send($domain, [
-      'from'    => $email,
-      'to'      => 'employearcadia@gmail.com', 
-      'subject' => "Nouveau message de contact de " . $name,
-      'text'    => "Nom: " . $name . "\nEmail: " . $email . "\nMessage: \n" . $message,
-      'html'    => "Nom: " . $name . "<br>Email: " . $email . "<br>Message: <br>" . nl2br($message)
-    ]);
-    echo "Votre message a bien été envoyé.</br>";
-  } catch (Exception $e) {
-    echo "Votre message n'a pas été envoyé: {$e->getMessage()}</br>";
-  }
+    try {
+        $phpmailer->isSMTP();
+        $phpmailer->Host = 'smtp.gmail.com'; 
+        $phpmailer->SMTPAuth = true;
+        $phpmailer->Username = 'camara.enc@gmail.com'; 
+        $phpmailer->Password = 'xrkq tbyu auoe ngot'; 
+        $phpmailer->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $phpmailer->Port = 587;
 
-  echo "Tu seras redirigé à la page précédente dans 5 secondes...";
-  header("refresh:5;url=" . $_SERVER['HTTP_REFERER']);
-  exit();
+       
+        $phpmailer->CharSet = 'UTF-8';
+
+       
+        $phpmailer->setFrom($email, $name);
+        $phpmailer->addAddress('employearcadia@gmail.com');
+
+     
+        $phpmailer->isHTML(true);
+        $phpmailer->Subject = "Nouveau message de contact de " . $name;
+        $phpmailer->Body    = "Nom: " . $name . "<br>Email: " . $email 
+        . "<br>Message: <br>" . nl2br($message);
+        $phpmailer->AltBody = "Nom: " . $name . "\nEmail: " . $email . "\nMessage: \n" . $message;
+
+        $phpmailer->send();
+        echo "Votre message a bien été envoyé.</br>";
+    } catch (Exception $e) {
+        echo "Votre message n'a pas été envoyé: {$phpmailer->ErrorInfo}</br>";
+    }
+
+    echo "Tu seras redirigé à la page précédente dans 5 secondes...";
+    header("refresh:5;url=" . $_SERVER['HTTP_REFERER']);
+    exit();
 }
+?>
+

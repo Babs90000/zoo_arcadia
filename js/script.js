@@ -74,22 +74,6 @@ document.getElementById("button_menu_mobile").addEventListener("click", function
 	});
 
 
-const carousel = document.getElementById("carouselExampleCaptions");
-document.addEventListener("DOMContentLoaded", function () {
-	if (window.screen.width < 768) {
-		carousel.classList.add("d-none");
-		carousel.classList.remove("d-block");
-		
-		const img = document.createElement("img");
-		img.setAttribute("src", "../assets/images_page_accueil_mobile/ecureuil.jpg");
-	img.setAttribute("alt", "ecureuil qui dévore une noissette sur une branche");
-	img.style.width = "100%";
-	img.style.height = "500px";
-	img.style.marginTop = "100px";
-	
-	const navbar = document.getElementById("navbar");
-	navbar.insertAdjacentElement("afterend", img)
-}
-
-
-});
+        function goBack() {
+            window.history.back();
+        }

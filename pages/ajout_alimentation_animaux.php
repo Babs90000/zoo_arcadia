@@ -9,7 +9,8 @@ if (!isset($_SESSION['role']) || ($_SESSION['role'] != 2 && $_SESSION['role'] !=
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (!empty($_POST['animal_id']) && !empty($_POST['date']) && !empty($_POST['heure']) && !empty($_POST['nourriture']) && !empty($_POST['quantite']) && !empty($_POST['username'])) {
+    if (!empty($_POST['animal_id']) && !empty($_POST['date']) && !empty($_POST['heure']) && !empty($_POST['nourriture']) 
+    && !empty($_POST['quantite']) && !empty($_POST['username'])) {
         $animal_id = (int)$_POST['animal_id'];
         $date = htmlspecialchars($_POST['date']);
         $heure = htmlspecialchars($_POST['heure']);
@@ -29,7 +30,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         $race_id = $race['race_id'];
      
-        $stmt = $bdd->prepare('INSERT INTO alimentation (animal_id, date, heure, type_nourriture, quantite_grammes, race_id, username) VALUES (:animal_id, :date, :heure, :type_nourriture, :quantite_grammes, :race_id, :username)');
+        $stmt = $bdd->prepare('INSERT INTO alimentation (animal_id, date, heure, type_nourriture, quantite_grammes, race_id, username)
+         VALUES (:animal_id, :date, :heure, :type_nourriture, :quantite_grammes, :race_id, :username)');
         $stmt->bindValue(':animal_id', $animal_id, PDO::PARAM_INT);
         $stmt->bindValue(':date', $date, PDO::PARAM_STR);
         $stmt->bindValue(':heure', $heure, PDO::PARAM_STR);
@@ -65,14 +67,14 @@ $animaux = $bdd->query($query)->fetchAll(PDO::FETCH_ASSOC);
             <h2>Ajouter une consommation de nourriture</h2>
 
             <?php if (isset($_SESSION['message'])): ?>
-                <p class="message"><?php echo $_SESSION['message']; unset($_SESSION['message']); ?></p>
+                <p class="message"><?php echo htmlspecialchars($_SESSION['message']); unset($_SESSION['message']); ?></p>
             <?php endif; ?>
 
             <form method="POST">
                 <label for="animal_id">Animal :</label>
                 <select name="animal_id" id="animal_id" required>
                     <?php foreach ($animaux as $animal): ?>
-                        <option value="<?php echo $animal['animal_id']; ?>"><?php echo $animal['prenom']; ?></option>
+                        <option value="<?php echo htmlspecialchars($animal['animal_id']); ?>"><?php echo htmlspecialchars($animal['prenom']); ?></option>
                     <?php endforeach; ?>
                 </select><br><br>
                 <label for="date">Date :</label>

@@ -1,4 +1,5 @@
-<?php require_once '../template/header.php'; ?>
+<?php require_once '../template/header.php';
+ ?>
 
 <div class="searchContainer">
     <label for="animalSearchBar">Rechercher un animal

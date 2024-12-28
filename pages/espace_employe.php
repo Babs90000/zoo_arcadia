@@ -31,9 +31,9 @@ switch ($role_utilisateur) {
 <main>
     <div class="container">
         <h1>Bienvenue dans l'espace employé </h1>
-        <p>Bonjour <?php echo $prenom; ?>, vous êtes connecté !</p>
+        <p>Bonjour <?php echo htmlspecialchars($prenom); ?>, vous êtes connecté !</p>
         <a href="ajout_alimentation_animaux.php">Renseigner l'alimentation d'un animal</a><br>
-        <a href="gestion_service.php">Modifier les services du zoo</a><br>
+        <a href="gestion_services.php">Modifier les services du zoo</a><br>
         <a href="valider_avis.php">Valider un avis </a>
 
     </div>

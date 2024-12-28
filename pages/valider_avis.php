@@ -108,10 +108,10 @@ $avis = $bdd->query($sql)->fetchAll(PDO::FETCH_ASSOC);
             <?php foreach ($avis as $un_avis): ?>
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Pseudo: <?php echo $un_avis['pseudo']; ?></h5>
-                        <p class="card-text">Commentaire: <?php echo $un_avis['commentaire']; ?></p>
+                        <h5 class="card-title">Pseudo: <?php echo htmlspecialchars($un_avis['pseudo']); ?></h5>
+                        <p class="card-text">Commentaire: <?php echo htmlspecialchars($un_avis['commentaire']); ?></p>
                         <form action="" method="post" class="d-inline">
-                            <input type="hidden" name="avis_id" value="<?php echo $un_avis['avis_id']; ?>">
+                            <input type="hidden" name="avis_id" value="<?php echo htmlspecialchars($un_avis['avis_id']); ?>">
                             <button type="submit" name="valider" class="btn btn-success">Valider</button>
                             <button type="submit" name="refuser" class="btn btn-danger">Refuser</button>
                         </form>
@@ -123,12 +123,6 @@ $avis = $bdd->query($sql)->fetchAll(PDO::FETCH_ASSOC);
         <?php endif; ?>
         <button class="btn btn-secondary btn-retour" onclick="goBack()">Retour</button>
     </div>
-
-    <script>
-        function goBack() {
-            window.history.back();
-        }
-    </script>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>

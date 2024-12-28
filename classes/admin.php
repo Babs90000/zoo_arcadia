@@ -73,7 +73,8 @@ class Admin extends Utilisateur
 
     public static function modifierHabitat($bdd, Habitat $habitat, array $images): void
     {
-        $sql = "UPDATE habitats SET nom = :nom, description = :description, commentaire_habitat = :commentaire_habitat WHERE habitat_id = :habitat_id";
+        $sql = "UPDATE habitats SET nom = :nom, description = :description, commentaire_habitat = :commentaire_habitat 
+        WHERE habitat_id = :habitat_id";
         $statement = $bdd->prepare($sql);
         $statement->execute([
             ':habitat_id' => $habitat->getHabitatId(),
