@@ -12,26 +12,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $phpmailer = new PHPMailer(true);
 
     try {
-        // Configuration du serveur SMTP
         $phpmailer->isSMTP();
-        $phpmailer->Host = 'smtp.gmail.com'; // Adresse du serveur SMTP de Gmail
+        $phpmailer->Host = 'smtp.gmail.com'; 
         $phpmailer->SMTPAuth = true;
-        $phpmailer->Username = 'camara.enc@gmail.com'; // Votre adresse e-mail Gmail
-        $phpmailer->Password = 'xrkq tbyu auoe ngot'; // Votre mot de passe Gmail
+        $phpmailer->Username = 'camara.enc@gmail.com'; 
+        $phpmailer->Password = 'xrkq tbyu auoe ngot'; 
         $phpmailer->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $phpmailer->Port = 587;
 
-        // Configuration de l'encodage
+       
         $phpmailer->CharSet = 'UTF-8';
 
-        // Destinataires
+       
         $phpmailer->setFrom($email, $name);
-        $phpmailer->addAddress('employearcadia@gmail.com'); // Ajouter le destinataire
+        $phpmailer->addAddress('employearcadia@gmail.com');
 
-        // Contenu de l'email
+     
         $phpmailer->isHTML(true);
         $phpmailer->Subject = "Nouveau message de contact de " . $name;
-        $phpmailer->Body    = "Nom: " . $name . "<br>Email: " . $email . "<br>Message: <br>" . nl2br($message);
+        $phpmailer->Body    = "Nom: " . $name . "<br>Email: " . $email 
+        . "<br>Message: <br>" . nl2br($message);
         $phpmailer->AltBody = "Nom: " . $name . "\nEmail: " . $email . "\nMessage: \n" . $message;
 
         $phpmailer->send();
@@ -45,3 +45,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     exit();
 }
 ?>
+
