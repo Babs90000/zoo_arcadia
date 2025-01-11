@@ -11,7 +11,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (!empty($_POST['prenom']) && !empty($_POST['race']) && !empty($_POST['age']) && !empty($_POST['description']) && !empty($_POST['etat']) && !empty($_POST['habitat_id'])) {
                 $prenom = htmlspecialchars(($_POST['prenom']));
                 $race = htmlspecialchars(($_POST['race']));
-                $age = htmlspecialchars((int)$_POST['age']);
                 $description = htmlspecialchars(($_POST['description']));
                 $etat = htmlspecialchars(($_POST['etat']));
                 $habitat_id = htmlspecialchars((int)$_POST['habitat_id']);
@@ -31,11 +30,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $race_id = $bdd->lastInsertId();
                 }
 
-                $stmt = $bdd->prepare('INSERT INTO animaux (prenom, race_id, age, description, etat, habitat_id) VALUES (:prenom, :race_id, :age, :description, :etat, :habitat_id)');
+                $stmt = $bdd->prepare('INSERT INTO animaux (prenom, race_id, description, etat, habitat_id) VALUES (:prenom, :race_id, :description, :etat, :habitat_id)');
                 $stmt->execute([
                     ':prenom' => $prenom,
                     ':race_id' => $race_id,
-                    ':age' => $age,
                     ':description' => $description,
                     ':etat' => $etat,
                     ':habitat_id' => $habitat_id
@@ -90,10 +88,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     } elseif ($action === 'modifier') {
         try {
-            if (!empty($_POST['animal_id']) && !empty($_POST['prenom']) && !empty($_POST['race']) && !empty($_POST['age']) && !empty($_POST['description']) && !empty($_POST['etat']) && !empty($_POST['habitat_id'])) {
+            if (!empty($_POST['animal_id']) && !empty($_POST['prenom']) && !empty($_POST['race']) && !empty($_POST['description']) && !empty($_POST['etat']) && !empty($_POST['habitat_id'])) {
                 $prenom = htmlspecialchars(($_POST['prenom']));
                 $race = htmlspecialchars(($_POST['race']));
-                $age = htmlspecialchars((int)$_POST['age']);
                 $description = htmlspecialchars(($_POST['description']));
                 $etat = htmlspecialchars(($_POST['etat']));
                 $habitat_id = htmlspecialchars((int)$_POST['habitat_id']);
@@ -113,11 +110,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $race_id = $bdd->lastInsertId();
                 }
 
-                $stmt = $bdd->prepare('UPDATE animaux SET prenom = :prenom, race_id = :race_id, age = :age, description = :description, etat = :etat, habitat_id = :habitat_id WHERE animal_id = :animal_id');
+                $stmt = $bdd->prepare('UPDATE animaux SET prenom = :prenom, race_id = :race_id, description = :description, etat = :etat, habitat_id = :habitat_id WHERE animal_id = :animal_id');
                 $stmt->execute([
                     ':prenom' => $prenom,
                     ':race_id' => $race_id,
-                    ':age' => $age,
                     ':description' => $description,
                     ':etat' => $etat,
                     ':habitat_id' => $habitat_id,
@@ -174,7 +170,7 @@ $collection->deleteOne(['animal_id' => $animal_id]);
 }
 
 $query = '
-    SELECT animaux.animal_id, animaux.prenom, races.label, animaux.age, animaux.description, animaux.etat, habitats.nom, images.image_data
+    SELECT animaux.animal_id, animaux.prenom, races.label, animaux.description, animaux.etat, habitats.nom, images.image_data
     FROM animaux
     LEFT JOIN images ON animaux.animal_id = images.animal_id
     LEFT JOIN races ON animaux.race_id = races.race_id
@@ -278,10 +274,6 @@ $habitats = $bdd->query('SELECT habitat_id, nom FROM habitats')->fetchAll(PDO::F
                 <input type="text" class="form-control" id="race" name="race" placeholder="Race" required>
             </div>
             <div class="form-group">
-                <label for="age">Âge:</label>
-                <input type="number" class="form-control" id="age" name="age" placeholder="Âge" required>
-            </div>
-            <div class="form-group">
                 <label for="description">Description:</label>
                 <textarea class="form-control" id="description" name="description" placeholder="Description" required></textarea>
             </div>
@@ -294,7 +286,7 @@ $habitats = $bdd->query('SELECT habitat_id, nom FROM habitats')->fetchAll(PDO::F
                 <select class="form-control" id="habitat_id" name="habitat_id" required>
                     <option value="">-- Veuillez choisir un habitat --</option>
                     <?php foreach ($habitats as $habitat): ?>
-                        <option value="<?php echo htmlspecialchar($habitat['habitat_id']); ?>"><?php echo htmlspecialchar($habitat['nom']); ?></option>
+                        <option value="<?php echo htmlspecialchars($habitat['habitat_id']); ?>"><?php echo htmlspecialchars($habitat['nom']); ?></option>
                     <?php endforeach; ?>
                 </select>
             </div>
@@ -312,13 +304,12 @@ $habitats = $bdd->query('SELECT habitat_id, nom FROM habitats')->fetchAll(PDO::F
             <?php foreach ($animaux as $animal): ?>
                 <div class="animal-card">
                     <h4><?php echo $animal['prenom']; ?></h4>
-                    <p><strong>Race:</strong> <?php echo htmlspecialchar($animal['label']); ?></p>
-                    <p><strong>Âge:</strong> <?php echo htmlspecialchar($animal['age']); ?></p>
-                    <p><strong>Description:</strong> <?php echo htmlspecialchar($animal['description']); ?></p>
-                    <p><strong>État:</strong> <?php echo htmlspecialchar($animal['etat']); ?></p>
-                    <p><strong>Habitat:</strong> <?php echo htmlspecialchar($animal['nom']); ?></p>
+                    <p><strong>Race:</strong> <?php echo htmlspecialchars($animal['label']); ?></p>
+                    <p><strong>Description:</strong> <?php echo htmlspecialchars($animal['description']); ?></p>
+                    <p><strong>État:</strong> <?php echo htmlspecialchars($animal['etat']); ?></p>
+                    <p><strong>Habitat:</strong> <?php echo htmlspecialchars($animal['nom']); ?></p>
                     <?php if ($animal['image_data']): ?>
-                        <img src="data:image/jpeg;base64,<?php echo base64_encode($animal['image_data']); ?>" alt="Photo de <?php echo htmlspecialchar($animal['prenom']); ?>" style="width: 600px;">
+                        <img src="data:image/jpeg;base64,<?php echo base64_encode($animal['image_data']); ?>" alt="Photo de <?php echo htmlspecialchars($animal['prenom']); ?>" style="width: 600px;">
                     <?php endif; ?>
 
                     <form method="POST" enctype="multipart/form-data" class="mt-3">
@@ -331,10 +322,6 @@ $habitats = $bdd->query('SELECT habitat_id, nom FROM habitats')->fetchAll(PDO::F
                         <div class="form-group">
                             <label for="race_<?php echo $animal['animal_id']; ?>">Race:</label>
                             <input type="text" class="form-control" id="race_<?php echo $animal['animal_id']; ?>" name="race" value="<?php echo $animal['label']; ?>" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="age_<?php echo $animal['animal_id']; ?>">Âge:</label>
-                            <input type="number" class="form-control" id="age_<?php echo $animal['animal_id']; ?>" name="age" value="<?php echo $animal['age']; ?>" required>
                         </div>
                         <div class="form-group">
                             <label for="description_<?php echo $animal['animal_id']; ?>">Description:</label>
@@ -357,14 +344,14 @@ $habitats = $bdd->query('SELECT habitat_id, nom FROM habitats')->fetchAll(PDO::F
                         </div>
                         <div class="form-group">
                             <label for="image_data_<?php echo $animal['animal_id']; ?>">Image:</label>
-                            <input type="file" class="form-control-file" id="image_data_<?php echo htmlspecialchar($animal['animal_id']); ?>" name="image_data">
+                            <input type="file" class="form-control-file" id="image_data_<?php echo htmlspecialchars($animal['animal_id']); ?>" name="image_data">
                         </div>
                         <button type="submit" class="btn btn-primary">Modifier</button>
                     </form>
 
                     <form method="POST" class="mt-2">
                         <input type="hidden" name="action" value="supprimer">
-                        <input type="hidden" name="animal_id" value="<?php echo htmlspeciachars($animal['animal_id']); ?>">
+                        <input type="hidden" name="animal_id" value="<?php echo htmlspecialchars($animal['animal_id']); ?>">
                         <button type="submit" class="btn btn-danger">Supprimer</button><br><br>
                     </form>
                 </div>
