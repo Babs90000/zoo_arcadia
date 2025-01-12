@@ -294,7 +294,7 @@ $habitats = $bdd->query('SELECT habitat_id, nom FROM habitats')->fetchAll(PDO::F
                 <select class="form-control" id="habitat_id" name="habitat_id" required>
                     <option value="">-- Veuillez choisir un habitat --</option>
                     <?php foreach ($habitats as $habitat): ?>
-                        <option value="<?php echo htmlspecialchar($habitat['habitat_id']); ?>"><?php echo htmlspecialchar($habitat['nom']); ?></option>
+                        <option value="<?php echo htmlspecialchars($habitat['habitat_id']); ?>"><?php echo htmlspecialchars($habitat['nom']); ?></option>
                     <?php endforeach; ?>
                 </select>
             </div>
@@ -312,13 +312,13 @@ $habitats = $bdd->query('SELECT habitat_id, nom FROM habitats')->fetchAll(PDO::F
             <?php foreach ($animaux as $animal): ?>
                 <div class="animal-card">
                     <h4><?php echo $animal['prenom']; ?></h4>
-                    <p><strong>Race:</strong> <?php echo htmlspecialchar($animal['label']); ?></p>
-                    <p><strong>Âge:</strong> <?php echo htmlspecialchar($animal['age']); ?></p>
-                    <p><strong>Description:</strong> <?php echo htmlspecialchar($animal['description']); ?></p>
-                    <p><strong>État:</strong> <?php echo htmlspecialchar($animal['etat']); ?></p>
-                    <p><strong>Habitat:</strong> <?php echo htmlspecialchar($animal['nom']); ?></p>
+                    <p><strong>Race:</strong> <?php echo htmlspecialchars($animal['label']); ?></p>
+                    <p><strong>Âge:</strong> <?php echo htmlspecialchars($animal['age']); ?></p>
+                    <p><strong>Description:</strong> <?php echo htmlspecialchars($animal['description']); ?></p>
+                    <p><strong>État:</strong> <?php echo htmlspecialchars($animal['etat']); ?></p>
+                    <p><strong>Habitat:</strong> <?php echo htmlspecialchars($animal['nom']); ?></p>
                     <?php if ($animal['image_data']): ?>
-                        <img src="data:image/jpeg;base64,<?php echo base64_encode($animal['image_data']); ?>" alt="Photo de <?php echo htmlspecialchar($animal['prenom']); ?>" style="width: 600px;">
+                        <img src="data:image/jpeg;base64,<?php echo base64_encode($animal['image_data']); ?>" alt="Photo de <?php echo htmlspecialchars($animal['prenom']); ?>" style="width: 600px;">
                     <?php endif; ?>
 
                     <form method="POST" enctype="multipart/form-data" class="mt-3">
@@ -357,14 +357,14 @@ $habitats = $bdd->query('SELECT habitat_id, nom FROM habitats')->fetchAll(PDO::F
                         </div>
                         <div class="form-group">
                             <label for="image_data_<?php echo $animal['animal_id']; ?>">Image:</label>
-                            <input type="file" class="form-control-file" id="image_data_<?php echo htmlspecialchar($animal['animal_id']); ?>" name="image_data">
+                            <input type="file" class="form-control-file" id="image_data_<?php echo htmlspecialchars($animal['animal_id']); ?>" name="image_data">
                         </div>
                         <button type="submit" class="btn btn-primary">Modifier</button>
                     </form>
 
                     <form method="POST" class="mt-2">
                         <input type="hidden" name="action" value="supprimer">
-                        <input type="hidden" name="animal_id" value="<?php echo htmlspeciachars($animal['animal_id']); ?>">
+                        <input type="hidden" name="animal_id" value="<?php echo htmlspecialchars($animal['animal_id']); ?>">
                         <button type="submit" class="btn btn-danger">Supprimer</button><br><br>
                     </form>
                 </div>

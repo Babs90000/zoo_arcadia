@@ -39,7 +39,9 @@ switch ($role_utilisateur) {
         <a href="gestion_animaux.php">Gestion des animaux</a><br>
         <a href="gestion_habitats.php">Gestion des habitats</a><br>
         <a href="modification_horaire.php">Modification des horaires</a><br>
+        <a href="faire_rapports_veterinaires.php">Faire un rapport vétérinaire</a><br>
         <a href="rapports_veterinaires.php">Rapports vétérinaires</a><br>
+        <a href="suivi_alimentation.php">Suivi alimentation animaux</a><br>
         <a href="decompte_visite_animaux.php">Décompte des visites des animaux</a><br>
         <a href="valider_avis.php">Valider un avis</a><br>
         
