@@ -9,12 +9,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($action === 'creer') {
         try {
             if (!empty($_POST['prenom']) && !empty($_POST['race']) && !empty($_POST['age']) && !empty($_POST['description']) && !empty($_POST['etat']) && !empty($_POST['habitat_id'])) {
-                $prenom = htmlspecialcharss(($_POST['prenom']));
-                $race = htmlspecialcharss(($_POST['race']));
-                $age = htmlspecialcharss((int)$_POST['age']);
-                $description = htmlspecialcharss(($_POST['description']));
-                $etat = htmlspecialcharss(($_POST['etat']));
-                $habitat_id = htmlspecialcharss((int)$_POST['habitat_id']);
+                $prenom = htmlspecialchars(($_POST['prenom']));
+                $race = htmlspecialchars(($_POST['race']));
+                $age = htmlspecialchars((int)$_POST['age']);
+                $description = htmlspecialchars(($_POST['description']));
+                $etat = htmlspecialchars(($_POST['etat']));
+                $habitat_id = htmlspecialchars((int)$_POST['habitat_id']);
                 $image_data = null;
 
                 if (!empty($_FILES['image_data']['tmp_name'])) {
@@ -91,12 +91,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } elseif ($action === 'modifier') {
         try {
             if (!empty($_POST['animal_id']) && !empty($_POST['prenom']) && !empty($_POST['race']) && !empty($_POST['age']) && !empty($_POST['description']) && !empty($_POST['etat']) && !empty($_POST['habitat_id'])) {
-                $prenom = htmlspecialcharss(($_POST['prenom']));
-                $race = htmlspecialcharss(($_POST['race']));
-                $age = htmlspecialcharss((int)$_POST['age']);
-                $description = htmlspecialcharss(($_POST['description']));
-                $etat = htmlspecialcharss(($_POST['etat']));
-                $habitat_id = htmlspecialcharss((int)$_POST['habitat_id']);
+                $prenom = htmlspecialchars(($_POST['prenom']));
+                $race = htmlspecialchars(($_POST['race']));
+                $age = htmlspecialchars((int)$_POST['age']);
+                $description = htmlspecialchars(($_POST['description']));
+                $etat = htmlspecialchars(($_POST['etat']));
+                $habitat_id = htmlspecialchars((int)$_POST['habitat_id']);
                 $image_data = null;
 
                 if (!empty($_FILES['image_data']['tmp_name'])) {
@@ -261,7 +261,7 @@ $habitats = $bdd->query('SELECT habitat_id, nom FROM habitats')->fetchAll(PDO::F
         <h2 class="text-success text-center mb-5">Gestion des Animaux</h2>
         <?php if (isset($_SESSION['message'])): ?>
             <div class="alert alert-success" role="alert">
-                <?php echo htmlspecialcharss($_SESSION['message']); ?>
+                <?php echo htmlspecialchars($_SESSION['message']); ?>
                 <?php unset($_SESSION['message']); ?>
             </div>
         <?php endif; ?>
