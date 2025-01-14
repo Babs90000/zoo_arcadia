@@ -9,9 +9,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($action === 'creer') {
         try {
             if (!empty($_POST['nom']) && !empty($_POST['description']) && !empty($_POST['prix'])) {
-                $nom = htmlspecialchars($_POST['nom']);
-                $description = htmlspecialchars($_POST['description']);
-                $prix = htmlspecialchars($_POST['prix']);
+                $nom = $_POST['nom'];
+                $description = $_POST['description'];
+                $prix = $_POST['prix'];
                 $image_data = null;
 
                 // Traitement de l'image téléchargée
@@ -48,9 +48,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         try {
             if (!empty($_POST['service_id']) && !empty($_POST['nom']) && !empty($_POST['description']) && !empty($_POST['prix'])) {
                 $service_id = (int)$_POST['service_id'];
-                $nom = htmlspecialchars($_POST['nom']);
-                $description = htmlspecialchars($_POST['description']);
-                $prix = htmlspecialchars($_POST['prix']);
+                $nom = $_POST['nom'];
+                $description = $_POST['description'];
+                $prix = $_POST['prix'];
                 $image_data = null;
 
                 // Traitement de l'image téléchargée

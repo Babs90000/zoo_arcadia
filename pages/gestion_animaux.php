@@ -9,12 +9,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($action === 'creer') {
         try {
             if (!empty($_POST['prenom']) && !empty($_POST['race']) && !empty($_POST['age']) && !empty($_POST['description']) && !empty($_POST['etat']) && !empty($_POST['habitat_id'])) {
-                $prenom = htmlspecialchars(($_POST['prenom']));
-                $race = htmlspecialchars(($_POST['race']));
-                $age = htmlspecialchars((int)$_POST['age']);
-                $description = htmlspecialchars(($_POST['description']));
-                $etat = htmlspecialchars(($_POST['etat']));
-                $habitat_id = htmlspecialchars((int)$_POST['habitat_id']);
+                $prenom = ($_POST['prenom']);
+                $race = ($_POST['race']);
+                $age = (int)$_POST['age'];
+                $description = ($_POST['description']);
+                $etat = ($_POST['etat']);
+                $habitat_id = (int)$_POST['habitat_id'];
                 $image_data = null;
 
                 if (!empty($_FILES['image_data']['tmp_name'])) {
@@ -91,12 +91,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } elseif ($action === 'modifier') {
         try {
             if (!empty($_POST['animal_id']) && !empty($_POST['prenom']) && !empty($_POST['race']) && !empty($_POST['age']) && !empty($_POST['description']) && !empty($_POST['etat']) && !empty($_POST['habitat_id'])) {
-                $prenom = htmlspecialchars(($_POST['prenom']));
-                $race = htmlspecialchars(($_POST['race']));
-                $age = htmlspecialchars((int)$_POST['age']);
-                $description = htmlspecialchars(($_POST['description']));
-                $etat = htmlspecialchars(($_POST['etat']));
-                $habitat_id = htmlspecialchars((int)$_POST['habitat_id']);
+                $prenom = (($_POST['prenom']));
+                $race = ($_POST['race']);
+                $age = (int)$_POST['age'];
+                $description = ($_POST['description']);
+                $etat = ($_POST['etat']);
+                $habitat_id = (int)$_POST['habitat_id'];
                 $image_data = null;
 
                 if (!empty($_FILES['image_data']['tmp_name'])) {
@@ -326,30 +326,30 @@ $habitats = $bdd->query('SELECT habitat_id, nom FROM habitats')->fetchAll(PDO::F
                         <input type="hidden" name="animal_id" value="<?php echo $animal['animal_id']; ?>">
                         <div class="form-group">
                             <label for="prenom_<?php echo $animal['animal_id']; ?>">Prénom:</label>
-                            <input type="text" class="form-control" id="prenom_<?php echo $animal['animal_id']; ?>" name="prenom" value="<?php echo $animal['prenom']; ?>" required>
+                            <input type="text" class="form-control" id="prenom_<?php echo htmlspecialchars($animal['animal_id']); ?>" name="prenom" value="<?php echo htmlspecialchars($animal['prenom']); ?>" required>
                         </div>
                         <div class="form-group">
                             <label for="race_<?php echo $animal['animal_id']; ?>">Race:</label>
-                            <input type="text" class="form-control" id="race_<?php echo $animal['animal_id']; ?>" name="race" value="<?php echo $animal['label']; ?>" required>
+                            <input type="text" class="form-control" id="race_<?php echo htmlspecialchars($$animal['animal_id']); ?>" name="race" value="<?php echo htmlspecialchars($animal['label']); ?>" required>
                         </div>
                         <div class="form-group">
                             <label for="age_<?php echo $animal['animal_id']; ?>">Âge:</label>
-                            <input type="number" class="form-control" id="age_<?php echo $animal['animal_id']; ?>" name="age" value="<?php echo $animal['age']; ?>" required>
+                            <input type="number" class="form-control" id="age_<?php echo htmlspecialchars($$animal['animal_id']); ?>" name="age" value="<?php echo htmlspecialchars($animal['age']); ?>" required>
                         </div>
                         <div class="form-group">
                             <label for="description_<?php echo $animal['animal_id']; ?>">Description:</label>
-                            <textarea class="form-control" id="description_<?php echo $animal['animal_id']; ?>" name="description" required><?php echo $animal['description']; ?></textarea>
+                            <textarea class="form-control" id="description_<?php echo htmlspecialchars($$animal['animal_id']); ?>" name="description" required><?php echo htmlspecialchars($animal['description']); ?></textarea>
                         </div>
                         <div class="form-group">
                             <label for="etat_<?php echo $animal['animal_id']; ?>">État:</label>
-                            <input type="text" class="form-control" id="etat_<?php echo $animal['animal_id']; ?>" name="etat" value="<?php echo $animal['etat']; ?>" required>
+                            <input type="text" class="form-control" id="etat_<?php echo htmlspecialchars($$animal['animal_id']); ?>" name="etat" value="<?php echo htmlspecialchars($animal['etat']); ?>" required>
                         </div>
                         <div class="form-group">
                             <label for="habitat_id_<?php echo $animal['animal_id']; ?>">Habitat:</label>
                             <select class="form-control" id="habitat_id_<?php echo $animal['animal_id']; ?>" name="habitat_id" required>
                                 <option value="">-- Veuillez choisir un habitat --</option>
                                 <?php foreach ($habitats as $habitat): ?>
-                                    <option value="<?php echo $habitat['habitat_id']; ?>" <?php if (isset($animal['habitat_id']) && $habitat['habitat_id'] == $animal['habitat_id']) echo 'selected'; ?>>
+                                    <option value="<?php echo $habitat['habitat_id']; ?>" <?php if (isset($animal['habitat_id']) && $habitat['habitat_id'] == $animal['habitat_id']) echo htmlspecialchars('selected'); ?>>
                                         <?php echo $habitat['nom']; ?>
                                     </option>
                                 <?php endforeach; ?>

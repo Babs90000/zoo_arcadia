@@ -18,9 +18,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($action === 'creer') {
         if (!empty($_POST['nom']) && !empty($_POST['description']) && !empty($_POST['commentaire_habitat'])) {
-            $nom = htmlspecialchars($_POST['nom']);
-            $description = htmlspecialchars($_POST['description']);
-            $commentaire_habitat = htmlspecialchars($_POST['commentaire_habitat']);
+            $nom = $_POST['nom'];
+            $description = $_POST['description'];
+            $commentaire_habitat = $_POST['commentaire_habitat'];
             $image_data = null;
 
             if (isset($_FILES['image']) && $_FILES['image']['error'] == 0) {
@@ -54,9 +54,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } elseif ($action === 'modifier') {
         if (!empty($_POST['habitat_id']) && !empty($_POST['nom']) && !empty($_POST['description']) && !empty($_POST['commentaire_habitat'])) {
             $habitat_id = (int)$_POST['habitat_id'];
-            $nom = htmlspecialchars($_POST['nom']);
-            $description = htmlspecialchars($_POST['description']);
-            $commentaire_habitat = htmlspecialchars($_POST['commentaire_habitat']);
+            $nom = $_POST['nom'];
+            $description = $_POST['description'];
+            $commentaire_habitat = $_POST['commentaire_habitat'];
             $image_data = null;
 
             if (isset($_FILES['image']) && $_FILES['image']['error'] == 0) {
@@ -191,22 +191,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                     <form method="POST" enctype="multipart/form-data" class="mt-3">
                         <input type="hidden" name="action" value="modifier">
-                        <input type="hidden" name="habitat_id" value="<?php echo htmlspecialchars($habitat['habitat_id']); ?>">
+                        <input type="hidden" name="habitat_id" value="<?php echo $habitat['habitat_id']; ?>">
                         <div class="form-group">
-                            <label for="nom_<?php echo htmlspecialchars($habitat['habitat_id']); ?>">Nom:</label>
+                            <label for="nom_<?php echo $habitat['habitat_id']; ?>">Nom:</label>
                             <input type="text" class="form-control" id="nom_<?php echo htmlspecialchars($habitat['habitat_id']); ?>" name="nom" value="<?php echo htmlspecialchars($habitat['nom']); ?>" required>
                         </div>
                         <div class="form-group">
-                            <label for="description_<?php echo htmlspecialchars($habitat['habitat_id']); ?>">Description:</label>
+                            <label for="description_<?php echo $habitat['habitat_id']; ?>">Description:</label>
                             <textarea class="form-control" id="description_<?php echo htmlspecialchars($habitat['habitat_id']); ?>" name="description" required><?php echo htmlspecialchars($habitat['description']); ?></textarea>
                         </div>
                         <div class="form-group">
-                            <label for="commentaire_habitat_<?php echo htmlspecialchars($habitat['habitat_id']); ?>">Commentaire:</label>
+                            <label for="commentaire_habitat_<?php echo $habitat['habitat_id']; ?>">Commentaire:</label>
                             <textarea class="form-control" id="commentaire_habitat_<?php echo htmlspecialchars($habitat['habitat_id']); ?>" name="commentaire_habitat" required><?php echo htmlspecialchars($habitat['commentaire_habitat']); ?></textarea>
                         </div>
                         <div class="form-group">
-                            <label for="image_<?php echo htmlspecialchars($habitat['habitat_id']); ?>">Image:</label>
-                            <input type="file" class="form-control-file" id="image_<?php echo htmlspecialchars($habitat['habitat_id']); ?>" name="image" accept="image/*">
+                            <label for="image_<?php echo $habitat['habitat_id']; ?>">Image:</label>
+                            <input type="file" class="form-control-file" id="image_<?php echo $habitat['habitat_id']; ?>" name="image" accept="image/*">
                         </div>
                         <button type="submit" class="btn btn-primary">Modifier</button>
                     </form>
