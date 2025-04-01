@@ -1,0 +1,31 @@
+name: Deploy to O2switch
+
+on:
+  push:
+    branches:
+      - main  
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: serveur o2switch
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          submodules: false
+
+      - name: 📂 Deploy to O2switch
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: public_html/zoo_arcadia/    # Remplacez zoo_arcadia par le nom de votre sous-dossier
+          # local-dir: ./dist/        # Décommentez si vous avez un dossier de build spécifique
+          exclude: |
+            **/.git*            # Exclut tous les fichiers git
+            **/.git*/**        # Exclut tous les dossiers git
+            **/node_modules/** # Exclut le dossier node_modules
+            README.md          # Exclut le fichier README
+            .env              # Exclut le fichier .env

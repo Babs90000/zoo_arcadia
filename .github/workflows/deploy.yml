@@ -1,0 +1,56 @@
+name: Deploy to O2switch
+
+on:
+  push:
+    branches:
+      - main  
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: serveur o2switch
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          submodules: false
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          extensions: mbstring, xml, ctype, iconv, intl, pdo_mysql
+
+      - name: Install dependencies
+        run: |
+          composer config --no-plugins allow-plugins.pestphp/pest-plugin true
+          composer install --no-dev --optimize-autoloader --no-progress --no-scripts
+
+      - name: Create .htaccess
+        run: |
+          echo "RewriteEngine On" > .htaccess
+          echo "RewriteCond %{REQUEST_FILENAME} !-f" >> .htaccess
+          echo "RewriteCond %{REQUEST_FILENAME} !-d" >> .htaccess
+          echo "RewriteRule ^(.*)$ index.php [QSA,L]" >> .htaccess
+
+      - name: 📂 Deploy to O2switch
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: public_html/zoo_arcadia/
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            **/.env
+            **/.env.*
+            **/vendor/**
+            **/tests/**
+            **/.github/**
+            **/.gitignore
+            **/composer.json
+            **/composer.lock
+            **/README.md
+            **/.gitmodules 
