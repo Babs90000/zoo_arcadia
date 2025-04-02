@@ -9,9 +9,9 @@ if (getenv('JAWSDB_URL') !== false) {
     $database = ltrim($dbparts['path'], '/');
 } else {
     $hostname = 'localhost';
-    $username = 'root';
-    $password = '';
-    $database = 'arcadia';
+    $username = 'caba3973_arcadia_user';
+    $password = 'joseleboss';
+    $database = 'caba3973_arcadia';
 }
 
 try {
