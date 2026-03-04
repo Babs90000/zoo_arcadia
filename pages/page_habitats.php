@@ -1,4 +1,3 @@
-<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 <?php require_once '../template/header.php'; ?>
 <link rel="stylesheet" href="../style/style.css" />
 <div class="containerHabitats">
